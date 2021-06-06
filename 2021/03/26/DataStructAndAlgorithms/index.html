@@ -1,0 +1,2371 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据结构与算法(C/C++实现), 小周の部落阁">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据结构与算法(C/C++实现) | 小周の部落阁</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小周の部落阁</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小周の部落阁</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Zwyywz" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Zwyywz" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/数据结构与算法.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据结构与算法(C/C++实现)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="数据结构与算法-C-C-实现"><a href="#数据结构与算法-C-C-实现" class="headerlink" title="数据结构与算法(C/C++实现)"></a>数据结构与算法(C/C++实现)</h1><p>​                                                                                                                                参考书籍：《数据结构、算法与应用 C++ 语言描述》 [美]Sartaj Sahni著；<a target="_blank" rel="noopener" href="http://c.biancheng.net/cpp/biancheng/view/2971.html">C语言中文网</a></p>
+<h2 id="第一章-C-回顾"><a href="#第一章-C-回顾" class="headerlink" title="第一章 C++回顾"></a>第一章 C++回顾</h2><h3 id="1-1-C-初步"><a href="#1-1-C-初步" class="headerlink" title="1.1 C++初步"></a>1.1 C++初步</h3><h4 id="1、C-命名空间"><a href="#1、C-命名空间" class="headerlink" title="1、C++命名空间"></a>1、C++命名空间</h4><p>例如小李和小韩都参与了一个文件管理系统的开发，它们都定义了一个全局变量 fp，用来指明前打开的文件，将他们的代码整合在一起编译时，很明显编译器会提示 fp 重复定义（Redefinition）错误。</p>
+<p>为了解决合作开发时的命名冲突问题，C++ 引入了<code>命名空间（Namespace）</code>的概念。请看下面的例子：</p>
+<pre class=" language-c++"><code class="language-c++">namespace Li&#123;  //小李的变量定义
+    FILE fp = NULL;
+&#125;
+namespace Han&#123;  //小韩的变量定义
+    FILE fp = NULL
+&#125;
+</code></pre>
+<p>小李与小韩各自定义了以自己姓氏为名的命名空间，此时再将他们的 fp 变量放在一起编译就不会有任何问题。</p>
+<blockquote>
+<p>命名空间有时也被称为名字空间、名称空间。namespace 是C++中的关键字，用来定义一个命名空间，语法格式为：</p>
+</blockquote>
+<pre class=" language-c++"><code class="language-c++">namespace name&#123;
+    //variables, functions, classes
+&#125;
+</code></pre>
+<p><code>name</code>是命名空间的名字，它里面可以包含变量、函数、类、typedef、#define 等，最后由<code>&#123; &#125;</code>包围。</p>
+<p>使用变量、函数时要指明它们所在的命名空间。以上面的 fp 变量为例，可以这样来使用：</p>
+<pre class=" language-c++"><code class="language-c++">Li :: fp = fopen("one.txt", "r");  //使用小李定义的变量 fp
+Han :: fp = fopen("two.txt", "rb+");  //使用小韩定义的变量 fp
+</code></pre>
+<p><code>::</code>是一个新符号，称为域解析操作符，在C++中用来指明要使用的命名空间。</p>
+<p>除了直接使用域解析操作符，还可以采用 using 声明，例如：</p>
+<pre class=" language-C++"><code class="language-C++">using Li :: fp;
+fp = fopen("one.txt", "r");  //使用小李定义的变量 fp
+Han :: fp = fopen("two.txt", "rb+");  //使用小韩定义的变量 fp
+</code></pre>
+<p>在代码的开头用<code>using</code>声明了<code> Li::fp</code>，它的意思是，``using <code>声明以后的程序中如果出现了未指明命名空间的 </code>fp<code>，就使用 </code>Li::fp<code>；但是若要使用小韩定义的</code> fp<code>，仍然需要 </code>Han::fp`。</p>
+<p>using 声明不仅可以针对命名空间中的一个变量，也可以用于声明整个命名空间，例如：</p>
+<pre class=" language-c++"><code class="language-c++">using namespace Li;
+fp = fopen("one.txt", "r");  //使用小李定义的变量 fp
+Han :: fp = fopen("two.txt", "rb+");  //使用小韩定义的变量 fp
+</code></pre>
+<p>如果命名空间 Li 中还定义了其他的变量，那么同样具有 fp 变量的效果。在 using 声明后，如果有未具体指定命名空间的变量产生了命名冲突，那么默认采用命名空间 Li 中的变量。</p>
+<p>命名空间内部不仅可以声明或定义变量，对于其它能在命名空间以外声明或定义的名称，同样也都能在命名空间内部进行声明或定义，例如类、函数、typedef、#define 等都可以出现在命名空间中。</p>
+<h4 id="2、C-标准库和std命名空间"><a href="#2、C-标准库和std命名空间" class="headerlink" title="2、C++标准库和std命名空间"></a>2、C++标准库和std命名空间</h4><p>为了避免头文件重名，新版 C++ 库也对头文件的命名做了调整，去掉了后缀<code>.h</code>，所以老式 C++ 的<code>iostream.h</code>变成了<code>iostream</code>，<code>fstream.h</code>变成了<code>fstream</code>。而对于原来C语言的头文件，也采用同样的方法，但在每个名字前还要添加一个<code>c</code>字母，所以C语言的<code>stdio.h</code>变成了<code>cstdio</code>，<code>stdlib.h</code>变成了<code>cstdlib</code></p>
+<blockquote>
+<p>可以发现，对于不带<code>.h</code>的头文件，所有的符号都位于命名空间 std 中，使用时需要声明命名空间 std；对于带<code>.h</code>的头文件，没有使用任何命名空间，所有符号都位于全局作用域。这也是 C++ 标准所规定的</p>
+</blockquote>
+<p>在C语言中，我们通常会使用 scanf 和 printf 来对数据进行输入输出操作。在C++语言中，C语言的这一套输入输出库我们仍然能使用，但是 C++ 又增加了一套新的、更容易使用的输入输出库。</p>
+<p>在C++ 中的输入与输出可以看做是一连串的数据流，输入即可视为从文件或键盘中输入程序中的一串数据流，而输出则可以视为从程序中输出一连串的数据流到显示屏或文件中。在编写 C++ 程序时，如果需要使用输入输出时，则需要包含头文件iostream<code>，包含了用于输入输出的对象，例如常见的</code>cin<code>表示标准输入、</code>cout<code>表示标准输出、</code>cerr`表示标准错误。iostream 是 Input Output Stream 的缩写，意思是“输入输出流”。cout 和 cin 都是 C++ 的内置对象，而不是关键字。</p>
+<h4 id="3、new和delete操作符"><a href="#3、new和delete操作符" class="headerlink" title="3、new和delete操作符"></a>3、new和delete操作符</h4><p>在C语言中，动态分配内存用 malloc() 函数，释放内存用 free() 函数。如下所示：</p>
+<pre class=" language-C++"><code class="language-C++">int *p = (int*) malloc( sizeof(int) * 10 );  //分配10个int型的内存空间
+free(p);  //释放内存
+</code></pre>
+<p>在C++中，这两个函数仍然可以使用，但是C++又新增了两个关键字，new 和 delete：new 用来动态分配内存，delete 用来释放内存。</p>
+<pre class=" language-c++"><code class="language-c++">int *p = new int;  //分配1个int型的内存空间
+delete p;  //释放内存
+//new 操作符会根据后面的数据类型来推断所需空间的大小。
+
+//如果希望分配一组连续的数据，可以使用 new[]：
+int *p = new int[10];  //分配10个int型的内存空间
+delete[] p;
+</code></pre>
+<p>用 new[] 分配的内存需要用 delete[] 释放，它们是一一对应的。</p>
+<p>和 malloc() 一样，new 也是在堆区分配内存，必须手动释放，否则只能等到程序运行结束由操作系统回收。为了避免内存泄露，通常 new 和 delete、new[] 和 delete[] 操作符应该成对出现，并且不要和C语言中 malloc()、free() 一起混用。</p>
+<h4 id="4、inline-内联函数"><a href="#4、inline-内联函数" class="headerlink" title="4、inline 内联函数"></a>4、inline 内联函数</h4><blockquote>
+<p>一个 C/C++ 程序的执行过程可以认为是多个函数之间的相互调用过程，它们形成了一个或简单或复杂的调用链条，这个链条的起点是 main()，终点也是 main()。当 main() 调用完了所有的函数，它会返回一个值（例如<code>return 0;</code>）来结束自己的生命，从而结束整个程序。</p>
+<p>函数调用是有时间和空间开销的。程序在执行一个函数之前需要做一些准备工作，要将实参、局部变量、返回地址以及若干寄存器都压入栈中，然后才能执行函数体中的代码；函数体中的代码执行完毕后还要清理现场，将之前压入栈中的数据都出栈，才能接着执行函数调用位置以后的代码。</p>
+<p>如果函数体代码比较多，需要较长的执行时间，那么函数调用机制占用的时间可以忽略；如果函数只有一两条语句，那么大部分的时间都会花费在函数调用机制上，这种时间开销就就不容忽视。</p>
+<p>为了消除函数调用的时空开销，C++ 提供一种提高效率的方法，即在编译时将函数调用处用函数体替换，类似于C语言中的宏展开。这种在函数调用处直接嵌入函数体的函数称为``内联函数（Inline Function）`，又称内嵌函数或者内置函数。</p>
+</blockquote>
+<p>注意，要在函数定义处添加 inline 关键字，在函数声明处添加 inline 关键字虽然没有错，但这种做法是无效的，编译器会忽略函数声明处的 inline 关键字。</p>
+<p><strong>使用内联函数的缺点也是非常明显的，编译后的程序会存在多份相同的函数拷贝，如果被声明为内联函数的函数体非常大，那么编译后的程序体积也将会变得很大，所以再次强调，一般只将那些短小的、频繁调用的函数声明为内联函数。</strong></p>
+<h3 id="1-2-C-函数提高"><a href="#1-2-C-函数提高" class="headerlink" title="1.2 C++ 函数提高"></a>1.2 C++ 函数提高</h3><h4 id="1、函数参数"><a href="#1、函数参数" class="headerlink" title="1、函数参数"></a>1、函数参数</h4><p><strong>1、传值参数</strong></p>
+<pre class=" language-c++"><code class="language-c++">int abc(int a ,int b,int)
+&#123;
+    return a+b+c;    
+&#125;
+</code></pre>
+<p>a,b,c是<code>形参</code>，每一个形参都是整形；可以使z=abc(2,x,y)调用求和函数。那么2,x,y分别对应a,b,c的实参。形参a,b,c实际上是<code>传值参数</code>，在运行时，函数a,b,c执行前，把实参复制给形参。复制过程是由形参类型的<code>复制构造函数</code></p>
+<p><strong>2、默认参数</strong></p>
+<p>在C++中，函数的形参列表中的形参是可以有默认值的</p>
+<p>语法：<code>返回值类型 函数名(参数A=默认值1，参数B=默认值2)</code></p>
+<pre class=" language-c++"><code class="language-c++">int add(int a, int b = 10, int c = 20)
+&#123;
+    return a + b + c;
+&#125;
+//如果某个位置有默认参数，那么从这个位置往后，都必须有默认值
+//声明和实现只能一个有默认参数
+
+/*错误示例
+int add(int a, int b = 10, int c)
+&#123;
+    return a + b + c;
+&#125;
+*/
+</code></pre>
+<h4 id="2、函数重载"><a href="#2、函数重载" class="headerlink" title="2、函数重载"></a>2、函数重载</h4><p><strong>作用：</strong>函数名相同，提高复用性</p>
+<p>函数重载满足的条件：</p>
+<ul>
+<li>同一个作用域下</li>
+<li>函数名称相同</li>
+<li>函数参数类型不同，或者个数不同，或者顺序不同</li>
+</ul>
+<pre class=" language-c++"><code class="language-c++">int add(int a, int b)
+&#123;
+    return a + b;
+&#125;
+int add(int a, int b, int c)
+&#123;
+    return a + b + c;
+&#125;
+double add(double a, double b, double c)
+&#123;
+    return a + b + c;
+&#125;
+
+int main()
+&#123;
+    int m, n;
+    cout << " 1 : " << add(1, 2) << endl;
+    cout << " 2 : " << add(1, 2, 3) << endl;
+    cout << " 3 : " << add(1.1, 2.2, 3.3) << endl;
+    system("pause");
+    return 0;
+&#125;
+</code></pre>
+<p>函数重载的注意事项：</p>
+<ul>
+<li>引用作为函数重载的条件</li>
+<li>函数重载碰到默认参数</li>
+</ul>
+<p>==注意：编译器的二义性==</p>
+<h4 id="3、模板函数"><a href="#3、模板函数" class="headerlink" title="3、模板函数"></a>3、模板函数</h4><p>假定我们希望编写另外一个函数来计算相同的表达式，不过这次a、b和c是float类型，结果也是float类型。程序1-2中给出了具体的代码。区别仅在于形参以及函数返回值的类型不同。</p>
+<pre class=" language-c++"><code class="language-c++">float abc(float a, float b, float c)
+&#123;
+    return a+b+c;
+&#125;
+</code></pre>
+<p>与其对每一种可能的形参类型都编写一个相应函数的新版本，不如编写一段通用代码,它的参数类型是一个变量，它的值由编译器来确定。这种通用代码使用的是模板语句。</p>
+<pre class=" language-c++"><code class="language-c++">template <class T>
+T abc(T a, T b, T c)
+&#123;
+    return a+b+c;
+&#125;
+</code></pre>
+<p>从这段通用代码，编译器通过既可T替换为int,也可把T替换为float 。事实上，通过把T替换为double或long,编译器还可以构造出函数abc的双精度型版本和长整型版本。把函数abc编写成模板函数,我们就不必了解形参的类型了。</p>
+<h3 id="1-3-C-类和对象"><a href="#1-3-C-类和对象" class="headerlink" title="1.3 C++类和对象"></a>1.3 C++类和对象</h3><p>C++面向对象的三大特性：==封装、继承、多态==，C++任务万事万物皆为对象，对象有其属性和行为。</p>
+<p>类是创建对象的模板，一个类可以创建多个对象，每个对象都是类类型的一个变量；创建对象的过程也叫类的实例化。每个对象都是类的一个具体实例，拥有类的成员变量和成员函数。</p>
+<blockquote>
+<p>有些教程将类的成员变量称为类的属性（Property），将类的成员函数称为类的方法（Method）。在面向对象的编程语言中，经常把函数（Function）称为方法（Method）。</p>
+</blockquote>
+<pre class=" language-c++"><code class="language-c++">class Student
+&#123;
+public:
+    //属性（Property）
+    string name;
+    int old;
+    float score;
+    //方法（Method）
+    void StudentInformation()
+    &#123;
+        cout << "the old of " << name << "is " << old << ","
+             << "and his(her) score is " << score << endl;
+    &#125;
+&#125;;
+</code></pre>
+<h4 id="1、封装的意义"><a href="#1、封装的意义" class="headerlink" title="1、封装的意义"></a>1、封装的意义</h4><p><strong>访问的三种权限：</strong></p>
+<p><code>公共权限（public）</code>：成员 类内可以访问 类外可以访问</p>
+<p><code>保护权限（protected）</code>：成员  类内可以访问  类外不可以访问  子类可以访问父类</p>
+<p><code>私有权限（private）</code>：成员  类内可以访问  类外不可以访问 子类不可以访问父类</p>
+<pre class=" language-c++"><code class="language-c++">class Person
+&#123;
+public:
+    string m_name;
+protected:
+    int m_car;
+private:
+    int m_card_ID;
+public:
+    void func()
+    &#123;
+        m_name = "zwy";
+        m_car = 123;
+        m_card_ID = 123456;
+    &#125;
+&#125;;
+</code></pre>
+<p><strong>成员属性设置为私有</strong></p>
+<p>1、可以自己控制读写属性</p>
+<p>2、对于写可以检测数据有效性</p>
+<h4 id="2、对象的初始化和清理"><a href="#2、对象的初始化和清理" class="headerlink" title="2、对象的初始化和清理"></a>2、对象的初始化和清理</h4><p><strong>1、构造函数和析构函数</strong></p>
+<p> <strong>构造函数语法</strong>：<code>类名（）&#123;&#125;</code></p>
+<ul>
+<li>构造函数没有返回值，也不写void</li>
+<li>函数名与类名相同</li>
+<li>构造函数也可以有参数，因此也可以发生重载</li>
+<li>程序在调用对象的时候自动调用构造，无需手动调用，而且只会调用一次</li>
+</ul>
+<p>析构函数语法：<code>~类名（）&#123;&#125;</code></p>
+<ul>
+<li>析构函数没有返回值，也不写void</li>
+<li>函数名与类名相同，在名称前加上符号 ~</li>
+<li>析构函数不可以有参数，因此不可以发生重载</li>
+<li>程序在对象销毁的时候自动调用析构，无需手动调用，而且只会调用一次</li>
+</ul>
+<pre class=" language-c++"><code class="language-c++">class Person
+&#123;
+public:
+    Person()
+    &#123;
+        cout << "1" << endl;
+    &#125;
+
+    ~Person()
+    &#123;
+         cout << "2" << endl;
+    &#125;
+&#125;;
+</code></pre>
+<p><strong>2、构造函数的分类</strong></p>
+<ul>
+<li><p>按照参数分类：无参构造（默认构造）和有参构造</p>
+</li>
+<li><p>按照类型分类：拷贝构造 和 普通构造（默认构造）</p>
+<pre class=" language-C++"><code class="language-C++">//有参构造  
+Person(int a)
+&#123;
+    cout << "1" << endl;
+&#125;
+//拷贝构造
+Person(const Person &p)
+&#123;
+    //将传入类的所有属性拷贝到本个上
+&#125;
+</code></pre>
+</li>
+</ul>
+<h4 id="3、函数模板"><a href="#3、函数模板" class="headerlink" title="3、函数模板"></a>3、函数模板</h4><ul>
+<li><p>C++另一种编程思想称为泛型编程。主要利用的技术就是模板</p>
+</li>
+<li><p>C++提供两种模板机制:函数模板和类模板</p>
+</li>
+</ul>
+<p>  <strong>函数模板语法：</strong></p>
+<pre class=" language-C++"><code class="language-C++">//定义
+template<typename T>
+void func(T &a,T &b)
+&#123;
+    
+&#125;
+//使用
+func<datatype>(a,b) ;
+</code></pre>
+<p>  <strong>解释：</strong></p>
+<p>  ​    template ———声明模板</p>
+<p>  ​    typename ——— 表明其后面的是一种数据类型，可用class替换</p>
+<p>  ​    T ——— 通用数据类型，名称可替换，通常为大写字母</p>
+<p>  <strong>函数模板作用:</strong>  建立-一个通用函数，其函数返回值类型和形参类型可以不具体制定,用-个虚拟的类型来代表。</p>
+<p>  <strong>函数模板的局限性</strong>：假设有个类—人，它有两个属性—名字和年龄。能否通过函数模板直接判断是否是同一个人？</p>
+<pre class=" language-C++"><code class="language-C++">class Person&#123;
+public:
+  string _name;
+  int _age;
+  Person(string name, int age) : _name(name), _age(age)&#123;&#125;;
+  ~Person()&#123;&#125;;
+&#125;;
+</code></pre>
+<p>以下为错误示例:</p>
+<pre class=" language-C++"><code class="language-C++">/*
+template <typename T>
+bool func(T &a, T &b)
+&#123;
+    if (a == b)
+        return true;
+    else
+        return false;
+&#125;
+void test_1()
+&#123;
+    Person P1("Tom", 10);
+    Person P2("Tom", 10);
+    bool re = func(P1, P2);
+&#125;*/
+</code></pre>
+<p><strong>解决方法</strong>：</p>
+<pre class=" language-c++"><code class="language-c++">template <typename T>
+bool func(T &a, T &b)
+&#123;
+    if (a == b)
+        return true;
+    else
+        return false;
+&#125;
+template <>
+bool func(Person &a, Person &b)
+&#123;
+    if (a._age == b._age && a._name == b._name)
+        return true;
+    else
+        return false;
+&#125;
+void test_2()
+&#123;
+    Person P1("Tom", 10);
+    Person P2("Tom", 10);
+    bool re = func<Person>(P1, P2);
+    cout << re << endl;
+&#125;
+</code></pre>
+<h4 id="4、类模板"><a href="#4、类模板" class="headerlink" title="4、类模板"></a>4、类模板</h4><p>  <strong>类模板语法：</strong></p>
+<pre class=" language-C++"><code class="language-C++">template <class nameType, class ageType = int>
+class Person
+&#123;
+public:
+  nameType _name;
+  ageType _age;
+  Person(nameType name, ageType age) : _name(name), _age(age)&#123;&#125;;
+  ~Person()&#123;&#125;;
+&#125;;
+</code></pre>
+<p>  <strong>解释：</strong></p>
+<p>  ​    template ———声明模板</p>
+<p>  ​    typename ——— 表明其后面的是一种数据类型，可用class替换</p>
+<p>  ​    T ——— 通用数据类型，名称可替换，通常为大写字母</p>
+<h2 id="第二章-程序性能分析"><a href="#第二章-程序性能分析" class="headerlink" title="第二章 程序性能分析"></a>第二章 程序性能分析</h2><h3 id="2-1-空间复杂度"><a href="#2-1-空间复杂度" class="headerlink" title="2.1 空间复杂度"></a>2.1 空间复杂度</h3><p><strong>1 、空间复杂度的组成</strong><br>    程序所需要的空间主要由以下部分构成:<br>        (1)指令空间( instruction space )：指令空间是指编译之后的程序指令所需要的存储空间。</p>
+<p>​    指令空间的数量取决于如下因素:<br>​            ●把程序转换成机器代码的编译器。<br>​            ●在编译时的编译器选项。<br>​            ●目标计算机。</p>
+<p>(2)数据空间( data space )：数据空间是指所有常量和变量值所需要的存储空间。它由两个部分构成:</p>
+<p>​    ●常量和简单变量所需要的存储空间。<br>​            ●动态数组和动态类实例等动态对象所需要的空间。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">空间大小</th>
+<th align="center">范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">bool</td>
+<td align="center">1</td>
+<td align="center">{true,flase}</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">1</td>
+<td align="center">{-128,127}</td>
+</tr>
+<tr>
+<td align="center">unsigned char</td>
+<td align="center">1</td>
+<td align="center">{0,255}</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2</td>
+<td align="center">{-32768,32767}</td>
+</tr>
+<tr>
+<td align="center">unsigned short</td>
+<td align="center">2</td>
+<td align="center">{0,65535}</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">4</td>
+<td align="center">{-2<sup>31</sup>,-2<sup>31</sup>-1}</td>
+</tr>
+<tr>
+<td align="center">unsigned long</td>
+<td align="center">4</td>
+<td align="center">{0,2<sup>32</sup>-1}</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">{-2<sup>31</sup>,-2<sup>31</sup>-1}</td>
+</tr>
+<tr>
+<td align="center">unsigned int</td>
+<td align="center">4</td>
+<td align="center">{0,2<sup>32</sup>-1}</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">4</td>
+<td align="center">+-3.4E+-38 (7位)</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8</td>
+<td align="center">+-1.7E+-308(15位)</td>
+</tr>
+<tr>
+<td align="center">long double</td>
+<td align="center">10</td>
+<td align="center">+-1.2E+-4392(19位)</td>
+</tr>
+</tbody></table>
+<p>(3)环境栈空间( environment stack space )：环境栈用来保存暂停的陋数和方法在恢复运行时所需要的信息。例如，如果函数foo调用了丽数goo,那么我们至少要保存在函数goo结束时函数foo继续执行的指令地址。</p>
+<p>●返回地址。<br>        ●正在调用的函数的所有局部变量的值以及形式参数的值( 仅对递归函数而言)。</p>
+<h3 id="2-2-时间复杂度"><a href="#2-2-时间复杂度" class="headerlink" title="2.2 时间复杂度"></a>2.2 时间复杂度</h3><h3 id="2-3-操作计数"><a href="#2-3-操作计数" class="headerlink" title="2.3 操作计数"></a>2.3 操作计数</h3><h3 id="2-4-步数"><a href="#2-4-步数" class="headerlink" title="2.4 步数"></a>2.4 步数</h3><h2 id="第三章-线性表——数组描述"><a href="#第三章-线性表——数组描述" class="headerlink" title="第三章  线性表——数组描述"></a>第三章  线性表——数组描述</h2><h3 id="3-1-线性表的数据结构"><a href="#3-1-线性表的数据结构" class="headerlink" title="3.1 线性表的数据结构"></a>3.1 线性表的数据结构</h3><p><strong>线性表( linear list)<strong>也称</strong>有序表( ordered list)</strong>, 它的每一个实例都是元素的一一个有序集合。每一个实例的形式为(e<sub>0</sub>,e<sub>1</sub>,e<sub>2</sub>,e<sub>3</sub>…e<sub>n</sub>)其中n是有穷自然数，e<sub>i</sub> 是线性表的元素，i是元素e<sub>i</sub> 的索引，n是线性表的长度或大小。元素可以被看做原子，它们本身的结构与线性表的结构无关。当n=0时，线性表为空;当n&gt;0时，e<sub>0</sub>是线性表的第0个元素或首元素, e<sub>n-1</sub> 是线性表的最后一个元素。可以认为e<sub>0</sub>先于e<sub>1</sub>，e<sub>1</sub>先于e<sub>2</sub>等等。除了这种先后关系之外，线性表不再有其他关系。</p>
+<p><strong>对线性表的操作</strong>：</p>
+<ul>
+<li>创建线性表</li>
+</ul>
+<pre class=" language-c"><code class="language-c">ChaLenArray <span class="token operator">*</span><span class="token function">Init_Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//初始化一个动态数组</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    ChaLenArray <span class="token operator">*</span>NewArray <span class="token operator">=</span> <span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>ChaLenArray<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    NewArray<span class="token operator">-></span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    NewArray<span class="token operator">-></span>cap <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+    NewArray<span class="token operator">-></span>pAddr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">*</span> NewArray<span class="token operator">-></span>cap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> NewArray<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>撤销一个线性表。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">FreeSpace_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//释放一个动态数组内存空间</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token operator">-></span>pAddr <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* code */</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>arr<span class="token operator">-></span>pAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>确定线性表的长度。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Size_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> arr<span class="token operator">-></span>size<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>按一个给定的索引查找一个元素。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">At_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> pos<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> arr<span class="token operator">-></span>pAddr<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>按一个给定的元素查找其索引。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Find_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//找到一个元素</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> pos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token operator">-></span>size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token operator">-></span>pAddr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> value<span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            pos <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> pos<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>按一个给定的索引删除- -个元素。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">RemoveByPos_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> pos<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//通过位置删除一个元素</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pos <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> pos <span class="token operator">>=</span> arr<span class="token operator">-></span>size<span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> pos<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token operator">-></span>size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        arr<span class="token operator">-></span>pAddr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token operator">-></span>pAddr<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    arr<span class="token operator">-></span>size<span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>按一个给定的索引插入-一个元素。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Push_Back_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//尾部插入一个数据</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token operator">-></span>size <span class="token operator">>=</span> arr<span class="token operator">-></span>cap<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> <span class="token operator">*</span>Newspce <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>arr<span class="token operator">-></span>cap <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">memcpy</span><span class="token punctuation">(</span>Newspce<span class="token punctuation">,</span> arr<span class="token operator">-></span>pAddr<span class="token punctuation">,</span> arr<span class="token operator">-></span>cap <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>arr<span class="token operator">-></span>pAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        arr<span class="token operator">-></span>cap <span class="token operator">=</span> arr<span class="token operator">-></span>cap <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        arr<span class="token operator">-></span>pAddr <span class="token operator">=</span> Newspce<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    arr<span class="token operator">-></span>pAddr<span class="token punctuation">[</span>arr<span class="token operator">-></span>size<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    arr<span class="token operator">-></span>size<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>从左至右顺序输出线性表元素。</li>
+</ul>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Printf_Array</span><span class="token punctuation">(</span>ChaLenArray <span class="token operator">*</span>arr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//打印</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token operator">-></span>size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* code */</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> arr<span class="token operator">-></span>pAddr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="3-2-变长一维数组"><a href="#3-2-变长一维数组" class="headerlink" title="3.2 变长一维数组"></a>3.2 变长一维数组</h3><p>一维数组array,线性表元素存在array[0,n-1]中，要增加或减少这个数组长度，首先要创建一个新数组，然后把array复制到这个数组，最后改变数组array的值，是它能够引用新数组。</p>
+<pre class=" language-c++"><code class="language-c++">//c++实现
+template <class T>
+void ChangeLength1D(T *a, int OldLength, int NewLength)
+&#123;
+    //if (NewLength <= 0)
+    //    throw "new length must be >=0";
+    T *temp = new T[NewLength];
+    int number = min(OldLength, NewLength);
+    copy(a, a + number, temp);
+    delete[] temp;
+    a = temp;
+&#125;
+//C语言实现
+ChaLenArray *Expand_Capacity(ChaLenArray *old_arr)
+&#123;
+    if (old_arr == NULL)
+        return NULL;
+    ChaLenArray *New_arr;
+    New_arr->cap = (int *)malloc(sizeof(int) * old_arr->cap * 2);
+    memcpy(New_arr->pAddr, old_arr->pAddr, old_arr->cap * sizeof(int));
+    New_arr->size = old_arr->size;
+    free(old_arr->pAddr);
+    return New_arr;
+&#125;
+</code></pre>
+<h2 id="第四章-线性表——-链表"><a href="#第四章-线性表——-链表" class="headerlink" title="第四章 线性表—— 链表"></a>第四章 线性表—— 链表</h2><h3 id="4-1-单向链表"><a href="#4-1-单向链表" class="headerlink" title="4.1 单向链表"></a>4.1 单向链表</h3><p>在链式描述中，数据实例的每一个元素都用一个单元或节点来描述。节点不必是数组成员，因此不是用公式来确定元素的位置。取而代之的是，每一个节点都明确包含另一个相关节点的位置信息，这个信息称为<code>链( link )</code>或<code>指针( pointer )</code>。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210409083321017.png"></p>
+<p>一般来说，为了找到索引为theIndex的元素，需要从firstNode开始，跟踪theIndex个指针才能找到。一个线 性表的链式的每一个节点只有一个链，这种结构称为<code>单向链表( singly linkedlist)</code>。链表从左到右，每一个节点(最后一个节点除外)都链接着下一个节点，最后一个节点的链域值为NULL。这样的结构也称为<code>链条( chain )</code>。</p>
+<p>因此，定义数据类型如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//定义节点</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> LINKNODE
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向任何数据指针 （数据域）</span>
+    <span class="token keyword">struct</span> LINKNODE <span class="token operator">*</span>next<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//指向下一个节点 （指针域）</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> LinkNode<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//定义链表</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> LINKLIST
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    LinkNode <span class="token operator">*</span>head<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//定义头结点</span>
+    <span class="token keyword">int</span> size<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//定义链表长度</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> LinKList<span class="token punctuation">;</span>
+</code></pre>
+<p><code>初始化</code>：首先需要初始化链表，对于一个链表而言，只需初始化头结点的指针域和数据域。</p>
+<pre class=" language-c"><code class="language-c">LinKList <span class="token operator">*</span><span class="token function">Init_LinkList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    LinKList <span class="token operator">*</span>list <span class="token operator">=</span> <span class="token punctuation">(</span>LinKList <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LinKList<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//申请内存存放链表</span>
+    list<span class="token operator">-></span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    list<span class="token operator">-></span>head <span class="token operator">=</span> <span class="token punctuation">(</span>LinkNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LinkNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//申请内存存放头结点</span>
+    list<span class="token operator">-></span>head<span class="token operator">-></span>data <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//头结点的数据域</span>
+    list<span class="token operator">-></span>head<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//头结点的指针域</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>插入元素</code>: 将要插入的元素与表List、位置Pos和数据指针Data一起传入。这个 Insert_LinkList（）函数将一个元索插人到由 Pos所指示的位置之后。它意味着插入操作如何实现并没有完全确定的规则。很有可能将新元素插人到位置Pos处(即在位置P处当时的元索的前面),所以需要知道位置P前面的元素。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5.png"></p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Insert_LinkList</span><span class="token punctuation">(</span>LinKList <span class="token operator">*</span>List<span class="token punctuation">,</span> <span class="token keyword">int</span> Pos<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>Data<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> data <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pos <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> pos <span class="token operator">></span> list<span class="token operator">-></span>size<span class="token punctuation">)</span>
+        pos <span class="token operator">=</span> list<span class="token operator">-></span>size<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//创建新节点</span>
+    LinkNode <span class="token operator">*</span>newNode <span class="token operator">=</span> <span class="token punctuation">(</span>LinkNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LinkNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newNode<span class="token operator">-></span>data <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    newNode<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//找节点（即找到Pos-1位置）</span>
+    LinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token operator">-></span>head<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//辅助指针</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pos<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        pCurrent <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//新节点入链表</span>
+    newNode<span class="token operator">-></span>next <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    pCurrent<span class="token operator">-></span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+    list<span class="token operator">-></span>size<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>删除元素</code>: 通过位置删除表List中的某个元素X。需要获取元素X的位置，与插入操作相同，也许寻找出前一个元素，并且缓存前一个元素的指针域信息，将指针域信息指向Pos的下一个位置。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">RemoveByBos_linkList</span><span class="token punctuation">(</span>LinKList <span class="token operator">*</span>list<span class="token punctuation">,</span> <span class="token keyword">int</span> pos<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pos <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> pos <span class="token operator">>=</span> list<span class="token operator">-></span>size<span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//查找删除的前一个节点</span>
+    LinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token operator">-></span>head<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pos<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        pCurrent <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//缓存待删除的节点</span>
+    LinkNode <span class="token operator">*</span>pDel <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    pCurrent<span class="token operator">-></span>next <span class="token operator">=</span> pDel<span class="token operator">-></span>next<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//释放删除节点的内存</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>pDel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    list<span class="token operator">-></span>size<span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>查找元素</code>: 在链表中查找指定数据元素，最常用的方法是：从表头依次遍历表中节点，用被查找元素与各节点数据域中存储的数据元素进行比对。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Find_LinkList</span><span class="token punctuation">(</span>LinKList <span class="token operator">*</span>list<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> data <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    LinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token operator">-></span>head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>pCurrent <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pCurrent<span class="token operator">-></span>data <span class="token operator">==</span> data<span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        i<span class="token operator">++</span><span class="token punctuation">;</span>
+        pCurrent <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>打印输出</code>：遍历链表中的所有元素，直到最后一个元素为<code>NULL</code>,这里为了打印任何类型的数据，使用了函数指针，重定义了Print函数。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">MyPrint</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    PERSON <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token punctuation">(</span>PERSON <span class="token operator">*</span><span class="token punctuation">)</span>data<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Name:%s Age:%d Score:%d\n"</span><span class="token punctuation">,</span> p<span class="token operator">-></span>name<span class="token punctuation">,</span> p<span class="token operator">-></span>age<span class="token punctuation">,</span> p<span class="token operator">-></span>score<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">Printf_LinkList</span><span class="token punctuation">(</span>LinKList <span class="token operator">*</span>list<span class="token punctuation">,</span> PRINTFLINKNODE print<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    LinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token operator">-></span>head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>pCurrent <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token function">print</span><span class="token punctuation">(</span>pCurrent<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        pCurrent <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>释放链表</code>:  清空所有元素的内存，包括链表和节点。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">FreeSpace_LinkList</span><span class="token punctuation">(</span>LinKList <span class="token operator">*</span>list<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    LinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token operator">-></span>head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>pCurrent <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//缓存下一个节点</span>
+        LinkNode <span class="token operator">*</span>pNext <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>pCurrent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        pCurrent <span class="token operator">=</span> pNext<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    list<span class="token operator">-></span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="4-2-双向链表"><a href="#4-2-双向链表" class="headerlink" title="4.2 双向链表"></a>4.2 双向链表</h3><p>虽然使用单链表能 100% 解决逻辑关系为 “一对一” 数据的存储问题，但在解决某些特殊问题时，单链表并不是效率最优的存储结构。比如说，如果算法中需要大量地找某指定结点的前趋结点，使用单链表无疑是灾难性的，因为单链表更适合 “从前往后” 找，而 “从后往前” 找并不是它的强项。本节来学习双向链表（简称双链表）。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.png"></p>
+<blockquote>
+<p>双向，指的是各节点之间的逻辑关系是双向的，但通常头指针只设置一个，除非实际情况需要。</p>
+</blockquote>
+<p>从上图中可以看到，双向链表中各节点包含以下 3 部分信息：</p>
+<ol>
+<li>指针域：用于指向当前节点的直接前驱节点；</li>
+<li>数据域：用于存储数据元素。</li>
+<li>指针域：用于指向当前节点的直接后继节点；</li>
+</ol>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210415121701683.png"></p>
+<p>数据类型：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> NodeDataType<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> _DoublelinkedNode
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> _DoublelinkedNOde <span class="token operator">*</span>prior<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向直接前趋</span>
+    NodeDataType data<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> _DoublelinkedNode <span class="token operator">*</span>next<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//指向直接后继</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> DoubLinkNode<span class="token punctuation">;</span>
+</code></pre>
+<p>初始化一个双向链表：</p>
+<pre class=" language-c"><code class="language-c">
+DoubLinkNode <span class="token operator">*</span><span class="token function">DoubListInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    DoubLinkNode <span class="token operator">*</span>head <span class="token operator">=</span> <span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DoubLinkNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    head<span class="token operator">-></span>prior <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    head<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    head<span class="token operator">-></span>data <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//声明一个指向首元节点的指针，方便后期向链表中添加新创建的节点</span>
+    DoubLinkNode <span class="token operator">*</span>list <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建新的节点并初始化</span>
+        DoubLinkNode <span class="token operator">*</span>body <span class="token operator">=</span> <span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DoubLinkNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        body<span class="token operator">-></span>prior <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        body<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        body<span class="token operator">-></span>data <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//新节点与链表最后一个节点建立关系</span>
+        list<span class="token operator">-></span>next <span class="token operator">=</span> body<span class="token punctuation">;</span>
+        body<span class="token operator">-></span>prior <span class="token operator">=</span> list<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//list永远指向链表中最后一个节点</span>
+        list <span class="token operator">=</span> list<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong><code>双向链表添加节点</code></strong>:有三种情况，分别是头部插入、中间插入和尾部插入。</p>
+<p>1、<code>头部插入</code>：将新数据元素添加到表头，只需要将该元素与表头元素建立双层逻辑关系即可。</p>
+<p>换句话说，假设新元素节点为 temp，表头节点为 head，则需要做以下 2 步操作即可：</p>
+<ol>
+<li>temp-&gt;next=head; head-&gt;prior=temp;</li>
+<li>将 head 移至 temp，重新指向新的表头；</li>
+</ol>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%A4%B4%E6%8F%92%E5%85%A5.png" alt="双向链表头插入"></p>
+<p>2、<code>中间位置插入</code>：同<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3336.html">单链表</a>添加数据类似，双向链表中间位置添加数据需要经过以下 2 个步骤，</p>
+<ol>
+<li>新节点先与其直接后继节点建立双层逻辑关系；</li>
+<li>新节点的直接前驱节点与之建立双层逻辑关系；</li>
+</ol>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5.png"></p>
+<p>3、<code>尾部插入</code>：与添加到表头是一个道理，实现过程如下：</p>
+<ol>
+<li><p>找到双链表中最后一个节点；</p>
+</li>
+<li><p>让新节点与最后一个节点进行双层逻辑关系；</p>
+<p><img src="D:\小周的部落阁\DataStructAndAlgorithms\双向链表尾插.png"></p>
+</li>
+</ol>
+<pre class=" language-c"><code class="language-c">
+DoubLinkNode <span class="token operator">*</span><span class="token function">InsertList</span><span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span>list<span class="token punctuation">,</span> NodeDataType data<span class="token punctuation">,</span> <span class="token keyword">int</span> pos<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    DoubLinkNode <span class="token operator">*</span>NewNode <span class="token operator">=</span> <span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DoubLinkNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    NewNode<span class="token operator">-></span>data <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    NewNode<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    NewNode<span class="token operator">-></span>prior <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//插入到链表头，要特殊考虑</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pos <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        NewNode<span class="token operator">-></span>next <span class="token operator">=</span> list<span class="token punctuation">;</span>
+        list<span class="token operator">-></span>prior <span class="token operator">=</span> NewNode<span class="token punctuation">;</span>
+        list <span class="token operator">=</span> NewNode<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//插入链表中</span>
+    <span class="token keyword">else</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        DoubLinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//辅助指针，找到插入位置的前一个节点</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pos <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            pCurrent <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pCurrent<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//说明插入点是尾部</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            pCurrent<span class="token operator">-></span>next <span class="token operator">=</span> NewNode<span class="token punctuation">;</span>
+            NewNode<span class="token operator">-></span>prior <span class="token operator">=</span> pCurrent<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token comment" spellcheck="true">//说明插入点是中间</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            pCurrent<span class="token operator">-></span>next<span class="token operator">-></span>prior <span class="token operator">=</span> NewNode<span class="token punctuation">;</span>
+            NewNode<span class="token operator">-></span>next <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+            pCurrent<span class="token operator">-></span>next <span class="token operator">=</span> NewNode<span class="token punctuation">;</span>
+            NewNode<span class="token operator">-></span>prior <span class="token operator">=</span> pCurrent<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong><code>双向链表删除节点</code></strong>:双链表删除结点时，只需遍历链表找到要删除的结点，然后将该节点从表中摘除即可。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%88%A0%E9%99%A4.png"></p>
+<pre class=" language-c"><code class="language-c">
+DoubLinkNode <span class="token operator">*</span><span class="token function">DeleteNodeByData</span><span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span>list<span class="token punctuation">,</span> <span class="token keyword">int</span> data<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>list <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    DoubLinkNode <span class="token operator">*</span>pCurrent <span class="token operator">=</span> list<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>pCurrent<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pCurrent<span class="token operator">-></span>data <span class="token operator">==</span> data<span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+            pCurrent<span class="token operator">-></span>next<span class="token operator">-></span>prior <span class="token operator">=</span> pCurrent<span class="token operator">-></span>prior<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//pCurrent->prior->next = pCurrent->next;</span>
+            <span class="token function">free</span><span class="token punctuation">(</span>pCurrent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        pCurrent <span class="token operator">=</span> pCurrent<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"tThis list doesn't have this element\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong><code>双向链表查找节点</code></strong>:通常，双向链表同单链表一样，都仅有一个头指针。因此，双链表查找指定元素的实现同单链表类似，都是从表头依次遍历表中元素。</p>
+<pre class=" language-c"><code class="language-c">
+NodeDataType <span class="token function">selectElem</span><span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span>list<span class="token punctuation">,</span> NodeDataType elem<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//新建一个指针t，初始化为头指针 head</span>
+    DoubLinkNode <span class="token operator">*</span>t <span class="token operator">=</span> list<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token operator">-></span>data <span class="token operator">==</span> elem<span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        i<span class="token operator">++</span><span class="token punctuation">;</span>
+        t <span class="token operator">=</span> t<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//程序执行至此处，表示查找失败</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong><code>双向链表更改节点</code></strong>:更改双链表中指定结点数据域的操作是在查找的基础上完成的。实现过程是：通过遍历找到存储有该数据元素的结点，直接更改其数据域即可。</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//更新函数，其中，add 表示更改结点在双链表中的位置，newElem 为新数据的值</span>
+DoubLinkNode <span class="token operator">*</span><span class="token function">amendElem</span><span class="token punctuation">(</span>DoubLinkNode <span class="token operator">*</span>list<span class="token punctuation">,</span> <span class="token keyword">int</span> pos<span class="token punctuation">,</span> <span class="token keyword">int</span> newElem<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    DoubLinkNode <span class="token operator">*</span>temp <span class="token operator">=</span> list<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//遍历到被删除结点</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pos<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> temp<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    temp<span class="token operator">-></span>data <span class="token operator">=</span> newElem<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="4-3-经典算法题——约瑟夫环"><a href="#4-3-经典算法题——约瑟夫环" class="headerlink" title="4.3 经典算法题——约瑟夫环"></a>4.3 经典算法题——约瑟夫环</h3><p>约瑟夫环问题，是一个经典的循环链表问题，题意是：已知 n 个人（分别用编号 1，2，3，…，n 表示）围坐在一张圆桌周围，从编号为 k 的人开始顺时针报数，数到 m 的那个人出列；他的下一个人又从 1 开始，还是顺时针开始报数，数到 m 的那个人又出列；依次重复下去，直到圆桌上剩余一个人。</p>
+<p>如图 所示，假设此时圆周周围有 5 个人，要求从编号为 3 的人开始顺时针数数，数到 2 的那个人出列：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF.png"></p>
+<p>出列顺序依次为：</p>
+<ul>
+<li>编号为 3 的人开始数 1，然后 4 数 2，所以 4 先出列；</li>
+<li>4 出列后，从 5 开始数 1，1 数 2，所以 1 出列；</li>
+<li>1 出列后，从 2 开始数 1，3 数 2，所以 3 出列；</li>
+<li>3 出列后，从 5 开始数 1，2 数 2，所以 2 出列；</li>
+<li>最后只剩下 5 自己，所以 5 胜出。</li>
+</ul>
+<blockquote>
+<p>可能用链表的方法去模拟这个过程，N个人看作是N个链表节点，节点1指向节点2，节点2指向节点3，……，节点N-1指向节点N，节点N指向节点1，这样就形成了一个环。然后从节点1开始1、2、3……往下报数，每报到M，就把那个节点从环上删除。下一个节点接着从1开始报数。最终链表仅剩一个节点。它就是最终的胜利者。</p>
+<p>缺点：要模拟整个游戏过程，时间复杂度高达O(nm)，当n，m非常大(例如上百万，上千万)的时候，几乎是没有办法在短时间内出结果的。</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> node<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> number<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> node <span class="token operator">*</span> next<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>person<span class="token punctuation">;</span>
+person <span class="token operator">*</span> <span class="token function">initLink</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    person <span class="token operator">*</span> head<span class="token operator">=</span><span class="token punctuation">(</span>person<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    head<span class="token operator">-></span>number<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    head<span class="token operator">-></span>next<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+    person <span class="token operator">*</span> cyclic<span class="token operator">=</span>head<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        person <span class="token operator">*</span> body<span class="token operator">=</span><span class="token punctuation">(</span>person<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        body<span class="token operator">-></span>number<span class="token operator">=</span>i<span class="token punctuation">;</span>
+        body<span class="token operator">-></span>next<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span> 
+        cyclic<span class="token operator">-></span>next<span class="token operator">=</span>body<span class="token punctuation">;</span>
+        cyclic<span class="token operator">=</span>cyclic<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    cyclic<span class="token operator">-></span>next<span class="token operator">=</span>head<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//首尾相连</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">findAndKillK</span><span class="token punctuation">(</span>person <span class="token operator">*</span> head<span class="token punctuation">,</span><span class="token keyword">int</span> k<span class="token punctuation">,</span><span class="token keyword">int</span> m<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ 
+    person <span class="token operator">*</span> tail<span class="token operator">=</span>head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//找到链表第一个结点的上一个结点，为删除操作做准备</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>tail<span class="token operator">-></span>next<span class="token operator">!=</span>head<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        tail<span class="token operator">=</span>tail<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    person <span class="token operator">*</span> p<span class="token operator">=</span>head<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//找到编号为k的人</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token operator">-></span>number<span class="token operator">!=</span>k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        tail<span class="token operator">=</span>p<span class="token punctuation">;</span>
+        p<span class="token operator">=</span>p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//从编号为k的人开始，只有符合p->next==p时，说明链表中除了p结点，所有编号都出列了，</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token operator">-></span>next<span class="token operator">!=</span>p<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//找到从p报数1开始，报m的人，并且还要知道数m-1de人的位置tail，方便做删除操作。</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            tail<span class="token operator">=</span>p<span class="token punctuation">;</span>
+            p<span class="token operator">=</span>p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        tail<span class="token operator">-></span>next<span class="token operator">=</span>p<span class="token operator">-></span>next<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从链表上将p结点摘下来</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"出列人的编号为:%d\n"</span><span class="token punctuation">,</span>p<span class="token operator">-></span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        p<span class="token operator">=</span>tail<span class="token operator">-></span>next<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//继续使用p指针指向出列编号的下一个编号，游戏继续</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"出列人的编号为:%d\n"</span><span class="token punctuation">,</span>p<span class="token operator">-></span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"输入圆桌上的人数n:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    person <span class="token operator">*</span> head<span class="token operator">=</span><span class="token function">initLink</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"从第k人开始报数(k>1且k&lt;%d)："</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> k<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"数到m的人出列："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> m<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">findAndKillK</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> k<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="第五章-栈和队列"><a href="#第五章-栈和队列" class="headerlink" title="第五章 栈和队列"></a>第五章 栈和队列</h2><h3 id="4-1-栈"><a href="#4-1-栈" class="headerlink" title="4.1 栈"></a>4.1 栈</h3><p>同顺序表和链表一样，栈也是用来存储逻辑关系为 “一对一” 数据的线性存储结构，如图所示。</p>
+<p><img src="D:\小周的部落阁\DataStructAndAlgorithms\栈png.png"><br>从图看到，栈存储结构与之前所学的线性存储结构有所差异，这缘于栈对数据 “存” 和 “取” 的过程有特殊的要求：</p>
+<ol>
+<li><strong>栈只能从表的一端存取数据，另一端是封闭的；</strong></li>
+<li><strong>在栈中，无论是存数据还是取数据，都必须遵循”先进后出”的原则，即最先进栈的元素最后出栈。从图中数据的存储状态可判断出，元素 1 是最先进的栈。因此，当需要从栈中取出元素 1 时，根据”先进后出”的原则，需提前将元素 3 和元素 2 从栈中取出，然后才能成功取出元素 1。</strong></li>
+</ol>
+<p>因此，即栈是一种只能从表的一端存取数据且遵循 <strong>“先进后出”</strong> 原则的线性存储结构。</p>
+<p>栈的开口端被称为栈顶；相应地，封口端被称为栈底。因此，栈顶元素指的就是距离栈顶最近的元素，拿图 2 来说，栈顶元素为元素 4；同理，栈底元素指的是位于栈最底部的元素，图中的栈底元素为元素 1。<br><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E6%A0%881.gif"></p>
+<h3 id="4-2-进栈和出栈"><a href="#4-2-进栈和出栈" class="headerlink" title="4.2 进栈和出栈"></a>4.2 进栈和出栈</h3><p>基于栈结构的特点，在实际应用中，通常只会对栈执行以下两种操作：</p>
+<ul>
+<li>向栈中添加元素，此过程被称为”进栈”（入栈或压栈）；</li>
+<li>从栈中提取出指定元素，此过程被称为”出栈”（或弹栈）；</li>
+</ul>
+<p>栈是一种 “特殊” 的线性存储结构，因此栈的具体实现有以下两种方式：</p>
+<p>顺序栈：采用顺序存储结构可以模拟栈存储数据的特点，从而实现栈存储结构；</p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//栈的数据结构</span>
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> dataType<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> _LinearStack
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    dataType arr<span class="token punctuation">[</span>MAX_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> LinearStack<span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//初始化一个栈：</span>
+LinearStack <span class="token operator">*</span><span class="token function">StackInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    LinearStack <span class="token operator">*</span>stack <span class="token operator">=</span> <span class="token punctuation">(</span>LinearStack <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LinearStack<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> MAX_SIZE<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        stack<span class="token operator">-></span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    stack<span class="token operator">-></span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stack<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">//入栈</span>
+LinearStack <span class="token operator">*</span><span class="token function">PushStack</span><span class="token punctuation">(</span>LinearStack <span class="token operator">*</span>stack<span class="token punctuation">,</span> dataType data<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    stack<span class="token operator">-></span>arr<span class="token punctuation">[</span>stack<span class="token operator">-></span>size<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"数据:%d压入栈，位置为:%d \n"</span><span class="token punctuation">,</span> stack<span class="token operator">-></span>arr<span class="token punctuation">[</span>stack<span class="token operator">-></span>size<span class="token punctuation">]</span><span class="token punctuation">,</span> stack<span class="token operator">-></span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    stack<span class="token operator">-></span>size<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stack<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//出栈</span>
+LinearStack <span class="token operator">*</span><span class="token function">PopStack</span><span class="token punctuation">(</span>LinearStack <span class="token operator">*</span>stack<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"数据:%d出栈"</span><span class="token punctuation">,</span> stack<span class="token operator">-></span>arr<span class="token punctuation">[</span>stack<span class="token operator">-></span>size<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    stack<span class="token operator">-></span>arr<span class="token punctuation">[</span>stack<span class="token operator">-></span>size<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    stack<span class="token operator">-></span>size<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"剩余栈长为：%d \n"</span><span class="token punctuation">,</span> stack<span class="token operator">-></span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stack<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="4-3-队列"><a href="#4-3-队列" class="headerlink" title="4.3 队列"></a>4.3 队列</h3><p>与栈结构不同的是，队列的两端都”开口”，要求数据只能从一端进，从另一端出，如图所示：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E9%98%9F%E5%88%97.gif"></p>
+<blockquote>
+<p>通常，称进数据的一端为 “队尾”，出数据的一端为 “队头”，数据元素进队列的过程称为 “入队”，出队列的过程称为 “出队”。</p>
+<p>栈和队列不要混淆，栈结构是一端封口，特点是”先进后出”；而队列的两端全是开口，特点是”先进先出”。</p>
+</blockquote>
+<h3 id="4-4-入队和出队"><a href="#4-4-入队和出队" class="headerlink" title="4.4 入队和出队"></a>4.4 入队和出队</h3><p>由于顺序队列的底层使用的是数组，因此需预先申请一块足够大的内存空间初始化顺序队列。除此之外，为了满足顺序队列中数据从队尾进，队头出且先进先出的要求。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> datatype<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> _Queue
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    datatype arr<span class="token punctuation">[</span>MAX<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> Queue<span class="token punctuation">;</span>
+Queue <span class="token operator">*</span><span class="token function">QueueInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    Queue <span class="token operator">*</span>queue <span class="token operator">=</span> <span class="token punctuation">(</span>Queue <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> MAX<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        queue<span class="token operator">-></span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">PushQueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">,</span> datatype data<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>queue <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> queue<span class="token operator">-></span>size <span class="token operator">==</span> MAX<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>arr<span class="token punctuation">[</span>queue<span class="token operator">-></span>size<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>size<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">PopQueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>queue <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> queue<span class="token operator">-></span>size <span class="token operator">==</span> MAX<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> queue<span class="token operator">-></span>size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        queue<span class="token operator">-></span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> queue<span class="token operator">-></span>arr<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>size<span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+datatype <span class="token function">BackTopQueue</span><span class="token punctuation">(</span>Queue <span class="token operator">*</span>queue<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>queue <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> queue<span class="token operator">-></span>size <span class="token operator">==</span> MAX<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> queue<span class="token operator">-></span>arr<span class="token punctuation">[</span>queue<span class="token operator">-></span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="4-5-栈和队列的应用"><a href="#4-5-栈和队列的应用" class="headerlink" title="4.5 栈和队列的应用"></a>4.5 栈和队列的应用</h3><p>基于栈结构对数据存取采用 “先进后出” 原则的特点，它可以用于实现很多功能。</p>
+<p>例如，我们经常使用浏览器在各种网站上查找信息。假设先浏览的页面 A，然后关闭了页面 A 跳转到页面 B，随后又关闭页面 B 跳转到了页面 C。而此时，我们如果想重新回到页面 A，有两个选择：</p>
+<ul>
+<li>重新搜索找到页面 A；</li>
+<li>使用浏览器的”回退”功能。浏览器会先回退到页面 B，而后再回退到页面 A。</li>
+</ul>
+<p>浏览器 “回退” 功能的实现，底层使用的就是栈存储结构。当你关闭页面 A 时，浏览器会将页面 A 入栈；同样，当你关闭页面 B 时，浏览器也会将 B入栈。因此，当你执行回退操作时，才会首先看到的是页面 B，然后是页面 A，这是栈中数据依次出栈的效果。</p>
+<p>不仅如此，栈存储结构还可以帮我们检测代码中的括号匹配问题。多数编程语言都会用到括号（小括号、中括号和大括号），括号的错误使用（通常是丢右括号）会导致程序编译错误，而很多开发工具中都有检测代码是否有编辑错误的功能，其中就包含检测代码中的括号匹配问题，此功能的底层实现使用的就是栈结构。</p>
+<p>同时，栈结构还可以实现数值的进制转换功能。例如，编写程序实现从十进制数自动转换成二进制数，就可以使用栈存储结构来实现。</p>
+<p>以上也仅是栈应用领域的冰山一角，这里不再过多举例。在后续章节的学习中，我们会大量使用到栈结构。接下来，我们学习如何实现顺序栈和链栈，以及对栈中元素进行入栈和出栈的操作。</p>
+<h2 id="第六章-串"><a href="#第六章-串" class="headerlink" title="第六章 串"></a>第六章 串</h2><p>数据结构中，字符串要单独用一种存储结构来存储，称为串存储结构。这里的串指的就是字符串。严格意义上讲，串存储结构也是一种线性存储结构，因为字符串中的字符之间也具有”一对一”的逻辑关系。只不过，与之前所学的线性存储结构不同，串结构只用于存储字符类型的数据。</p>
+<p>无论学习哪种编程语言，操作最多的总是字符串。数据结构中，根据串中存储字符的数量及特点，对一些特殊的串进行了命名，比如说：</p>
+<ul>
+<li>空串：存储 0 个字符的串，例如 S = “”（双引号紧挨着）；</li>
+<li>空格串：只包含空格字符的串，例如 S = “   “（双引号包含 5 个空格）；</li>
+<li>子串和主串：假设有两个串 a 和 b，如果 a 中可以找到几个连续字符组成的串与 b 完全相同，则称 a 是 b 的主串，b 是 a 的子串。例如，若 a = “shujujiegou”，b = “shuju”，由于 a 中也包含 “shuju”，因此串 a 和串 b 是主串和子串的关系；</li>
+</ul>
+<p>另外，对于具有主串和子串关系的两个串，通常会让你用算法找到子串在主串的位置。子串在主串中的位置，指的是子串首个字符在主串中的位置。</p>
+<p>例如，串 a = “shujujiegou”，串 b = “jiegou”，通过观察，可以判断 a 和 b 是主串和子串的关系，同时子串 b 位于主串 a 中第 6 的位置，因为在串 a 中，串 b 首字符 ‘j’ 的位置是 6。</p>
+<h3 id="6-1-串的定长顺序存储"><a href="#6-1-串的定长顺序存储" class="headerlink" title="6.1 串的定长顺序存储"></a>6.1 串的定长顺序存储</h3><blockquote>
+<p>串的定长顺序存储结构，可以简单地理解为采用 “固定长度的顺序存储结构” 来存储字符串，因此限定了其底层实现只能使用静态数组。</p>
+</blockquote>
+<p>使用定长顺序存储结构存储字符串时，需结合目标字符串的长度，预先申请足够大的内存空间。例如，采用定长顺序存储结构存储 “<a target="_blank" rel="noopener" href="http://www.codezhou.club&quot;,通过目测得知此字符串长度为/">www.codezhou.club&quot;，通过目测得知此字符串长度为</a> 17，因此我们申请的数组空间长度至少为 18（最后一位存储字符串的结束标志 ‘\0’），用 C 语言表示为：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token number">18</span><span class="token punctuation">]</span> <span class="token operator">=</span> “www<span class="token punctuation">.</span>codezhou<span class="token punctuation">.</span>club"<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="6-2-串的堆分配存储"><a href="#6-2-串的堆分配存储" class="headerlink" title="6.2 串的堆分配存储"></a>6.2 串的堆分配存储</h3><p>串的堆分配存储其具体实现方式是采用动态数组存储字符串。通常，编程语言会将程序占有的内存空间分成多个不同的区域，程序包含的数据会被分门别类并存储到对应的区域。拿 C 语言来说，程序会将内存分为 4 个区域，分别为堆区、栈区、数据区和代码区。</p>
+<p>与其他区域不同，堆区的内存空间需要程序员手动使用 malloc 函数申请，并且在不用后要手动通过 free 函数将其释放。</p>
+<p>C 语言中使用 malloc 函数最多的场景是给数组分配空间，这类数组称为动态数组。例如：</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span> a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>此行代码创建了一个动态数组 a，通过使用 malloc 申请了 5 个 char 类型大小的堆存储空间。</p>
+<p>==动态数组相比普通数组（静态数组）的优势是长度可变，换句话说，根据需要动态数组可额外申请更多的堆空间（使用 relloc 函数）：==</p>
+<pre class=" language-c"><code class="language-c">a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">10</span><span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>通过使用这行代码，之前具有 5 个 char 型存储空间的动态数组，其容量扩大为可存储 10 个 char 型数据。</p>
+<p>完整展示如下：</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>a1 <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>a2 <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    a1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span> <span class="token string">"http://www"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//将字符串"http://www"复制给a1</span>
+    a2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">strcpy</span><span class="token punctuation">(</span>a2<span class="token punctuation">,</span> <span class="token string">"codezhou.club"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> lengthA1 <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//a1串的长度</span>
+    <span class="token keyword">int</span> lengthA2 <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//a2串的长度</span>
+    <span class="token comment" spellcheck="true">//尝试将合并的串存储在 a1 中，如果 a1 空间不够，则用realloc动态申请</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>lengthA1 <span class="token operator">&lt;</span> lengthA1 <span class="token operator">+</span> lengthA2<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        a1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span> <span class="token punctuation">(</span>lengthA1 <span class="token operator">+</span> lengthA2 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//合并两个串到 a1 中</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> lengthA1<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> lengthA1 <span class="token operator">+</span> lengthA2<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        a1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> a2<span class="token punctuation">[</span>i <span class="token operator">-</span> lengthA1<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//串的末尾要添加 \0，避免出错</span>
+    a1<span class="token punctuation">[</span>lengthA1 <span class="token operator">+</span> lengthA2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'\0'</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> a1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//用完动态数组要立即释放</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="6-3-BF算法"><a href="#6-3-BF算法" class="headerlink" title="6.3 BF算法"></a>6.3 BF算法</h3><p>暴力(Brute Force)算法是普通的模式匹配算法，BF算法的思想就是将目标串S的第一个字符与模式串T的第一个字符进行匹配，若相等，则继续比较S的第二个字符和 T的第二个字符；若不相等，则比较S的第二个字符和T的第一个字符，依次比较下去，直到得出最后的匹配结果。BF算法是一种蛮力算法。</p>
+<img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/20210507125343.png" style="zoom:80%;" />
+
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">index</span><span class="token punctuation">(</span> String S<span class="token punctuation">,</span> String T<span class="token punctuation">,</span> <span class="token keyword">int</span> pos <span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> pos<span class="token punctuation">;</span>                        <span class="token comment" spellcheck="true">// i 表示主串 S 中当前位置下标</span>
+    <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>                            <span class="token comment" spellcheck="true">// j 表示子串 T 中当前位置下标</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span> i <span class="token operator">&lt;=</span> S<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;=</span> T<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// i 或 j 其中一个到达尾部则终止搜索</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> S<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> T<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">// 若相等则继续进行下一个元素匹配</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+            j<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>                         <span class="token comment" spellcheck="true">// 若匹配失败则 j 回溯到第一个元素重新匹配</span>
+            i <span class="token operator">=</span> i <span class="token operator">-</span> j <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">// 将 i 重新回溯到上次匹配首位的下一个元素</span>
+            j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> j <span class="token operator">></span> T<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> i <span class="token operator">-</span> T<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>BF算法时间复杂度:该算法最理想的时间复杂度 <code>O(n)</code>，n 表示串 A 的长度，即第一次匹配就成功。BF 算法最坏情况的时间复杂度为 <code>O(n*m)</code>，n 为串 A 的长度，m 为串 B 的长度。例如，串 B 为 “0000000001”，而串 A 为 “01”，这种情况下，两个串每次匹配，都必须匹配至串 A 的最末尾才能判断匹配失败，因此运行了 n*m 次。</p>
+<p>BF 算法的实现过程很 “无脑”，不包含任何技巧，在对数据量大的串进行模式匹配时，算法的效率很低。</p>
+<h3 id="6-4-KMP算法"><a href="#6-4-KMP算法" class="headerlink" title="6.4 KMP算法"></a>6.4 KMP算法</h3><blockquote>
+<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>中，<strong>Knuth-Morris-Pratt<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95">字符串查找算法</a><strong>（简称为</strong>KMP算法</strong>）可在一个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a><code>S</code>内查找一个词<code>W</code>的出现位置。一个词在不匹配时本身就包含足够的信息来确定下一个匹配可能的开始位置，此算法利用这一特性以避免重新检查先前匹配的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6">字符</a>。</p>
+<p>这个算法由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%AB%98%E5%BE%B7%E7%BA%B3">高德纳</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%B2%83%E6%81%A9%C2%B7%E6%99%AE%E6%8B%89%E7%89%B9&action=edit&redlink=1">沃恩·普拉特</a>在1974年构思，同年<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%A9%B9%E5%A7%86%E6%96%AF%C2%B7H%C2%B7%E8%8E%AB%E9%87%8C%E6%96%AF&action=edit&redlink=1">詹姆斯·H·莫里斯</a>也独立地设计出该算法，最终三人于1977年联合发表。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zwy</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zwyywz.github.io/2021/03/26/DataStructAndAlgorithms/">https://zwyywz.github.io/2021/03/26/DataStructAndAlgorithms/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zwy</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/">
+                    <div class="card-image">
+                        
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/油耗.jpg" class="responsive-img" alt="汽车油耗预测实战">
+                        
+                        <span class="card-title">汽车油耗预测实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            将利用全连接网络模型来完成汽车的效能指标MPG(Mile Per Gallon，每加仑燃油英里数)的预测问题实战
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    个人项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TensorFlow/">
+                        <span class="chip bg-color">TensorFlow</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/26/DigitalImageProcessing/">
+                    <div class="card-image">
+                        
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/DIP.png" class="responsive-img" alt="数字图像处理（DIP）">
+                        
+                        <span class="card-title">数字图像处理（DIP）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">图像处理</span>
+                    </a>
+                    
+                    <a href="/tags/Opencv/">
+                        <span class="chip bg-color">Opencv</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Zhouwy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Zwyywz" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zwy2867283770@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2867283770" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2867283770" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

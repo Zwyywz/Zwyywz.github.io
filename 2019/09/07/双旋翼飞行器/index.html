@@ -1,0 +1,1392 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="升降式双旋翼飞行器, 小周の部落阁">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>升降式双旋翼飞行器 | 小周の部落阁</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小周の部落阁</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小周の部落阁</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Zwyywz" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Zwyywz" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/下载.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">升降式双旋翼飞行器</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/STM32/">
+                                <span class="chip bg-color">STM32</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6/">
+                                <span class="chip bg-color">智能控制</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                个人项目
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-07
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>2018年湖南省大学生电子设计竞赛设计——</p>
+<h1 id="升降式双旋翼飞行器"><a href="#升降式双旋翼飞行器" class="headerlink" title="升降式双旋翼飞行器"></a><strong>升降式双旋翼飞行器</strong></h1><h2 id="1、赛题简介"><a href="#1、赛题简介" class="headerlink" title="1、赛题简介"></a>1、赛题简介</h2><h3 id="1-1、赛题任务"><a href="#1-1、赛题任务" class="headerlink" title="1.1、赛题任务"></a>1.1、赛题任务</h3><p>设计并制作一个沿竖杆升降的双旋翼飞行器及其控制系统。竖杆采用φ 12mm的圆钢，外套φ 17mm不锈钢管，长(1.4~1.7)m, 下端固定在底座上，杆上分别标有明显的A、B、C、D点标记，其中: A点距底面30cm, B点距底面70cm, C点距底面100cm，D点距底面130cm，且CD段有cm间隔的标记，如图1所示。双旋翼飞行器由根横板 和安装在横板两端的直流电机、螺旋浆组成，横板长度为50cm，中心最宽处宽度为10cm，两直流电机轴间距离为40cm,且横板中部有一个圆孔( φ20)。竖杆穿过横板中部的圆孔，能使横板沿竖杆自由地上下移动，如图2所示。控制系统通过控制两个螺旋浆的转速实现双旋翼飞行器起飞、降落以及飞行过程中的高度控制。在飞行器上有两个LED灯指示飞行器的状态。其中白色发光二极管为1#指示灯，红色发光二极管为2#指示灯。横板上离中心5cm处需要安装- - 个悬挂法码的小钩。</p>
+<h3 id="1-2、基本要求"><a href="#1-2、基本要求" class="headerlink" title="1.2、基本要求"></a>1.2、基本要求</h3><p>当飞行器静止地停在底面时，键启动控制系统， 分别完成以下飞行过程:</p>
+<p>(1)在15秒内，飞行器由地面上升且高度超过A点3秒以上，再平稳地降落回地面:</p>
+<p>(2)在 20秒内，飞行器由地面上升并悬停在CD段维持3秒以上，再平稳地降落回地面:</p>
+<p>(3) 在30秒内，飞行器由地面上升并悬停在AB段维持3秒，再上升并悬停在CD段维持3秒，再平稳地降落回地面:在此过程中，飞行器悬停在AB段时亮1“灯，在CD段悬停时亮2*灯，其它不亮灯。</p>
+<p> (4) 在30秒内，飞行器由地面上升并悬停在CD段内的指定高度(X)5秒以上，且高度误差不超过Scm (以上下波动中心为准)、上下波动范围不超过5cm, 达到要求时同时亮1”、2*灯;</p>
+<p>(5) 将控制系统、电池等全部安装在横板上，完成基本部分所有要求，且飞行器不出现螺旋状态。</p>
+<h3 id="1-3、发挥部分"><a href="#1-3、发挥部分" class="headerlink" title="1.3、发挥部分"></a>1.3、发挥部分</h3><p>控制系统、电池等全部安装在横板上的条件下:</p>
+<p>(1) 飞行器由地面上升并悬停在CD段内的指定高度(X) 5秒以上时，人为将飞行器拉到BC段，飞行器能够自动返回原先的高度;</p>
+<p>(2)在基本部分(4) 的基础上，进一步提高控制精度， 实现飞行器高度误差不超过3cm、上下波动范围不超过3cm,误差及波动范围越小越好;</p>
+<p> (3)在完成发挥部分(2) 的基础上，实现飞行器高度的增量控制，即:通过按步进值键X)，使飞行器上升Xcm、 或按另一个键使飞行器下降Xcm, 误差、波动范围要求同发挥部分(2)</p>
+<p>(4)在飞行器中间小钩上加挂10克以上重物，完成发挥部分(3)</p>
+<p>(5)自由发挥(仅限于更复杂的飞行路径和提高定位精度)</p>
+<h2 id="2、原理论证"><a href="#2、原理论证" class="headerlink" title="2、原理论证"></a>2、原理论证</h2><blockquote>
+<p>PID 控制器以各种形式使用超过了 1 世纪，广泛应用在机械设备、气动设备 和电子设备.在工业应用中PID及其衍生算法是应用最广泛的算法之一，是当之无愧的万能算法。</p>
+</blockquote>
+<p>PID 实指“比例 proportional”、“积分 integral”、“微分 derivative”，这三项构 成 PID 基本要素。每一项完成不同任务，对系统功能产生不同的影响。它的结构简单，参数易 于调整，是控制系统中经常采用的控制算法。</p>
+<p>**u(t)**为控制器输出的控制量；（输出）</p>
+<p>**e(t)**为偏差信号，它等于给定量与输出量之差；（输入）</p>
+<p><strong>KP</strong> 为比例系数；（对应参数 P）</p>
+<p><strong>TI</strong> 为积分时间常数；（对应参数I）</p>
+<p><strong>TD</strong> 为微分时间常数。(对应参数 D) </p>
+<p>数字 PID 控制算法通常分为位置式 PID 控制算法和增量式 PID 控制算法。  </p>
+<p><strong>位置式 PID 算法 :</strong></p>
+<p> e(k): 用户设定的值（目标值） -  控制对象的当前的状态值 </p>
+<p>比例P :    e(k)</p>
+<p>积分I :   ∑e(i)     误差的累加</p>
+<p>微分D :  e(k) - e(k-1)  这次误差-上次误差</p>
+<p>也就是位置式PID是当前系统的实际位置，与你想要达到的预期位置的偏差，进行PID控制</p>
+<p>因为有误差积分 ∑e(i)，一直累加，也就是当前的输出u(k)与过去的所有状态都有关系，用到了误差的累加值；（误差e会有误差累加），输出的u(k)对应的是执行机构的实际位置，，一旦控制输出出错(控制对象的当前的状态值出现问题 )，u(k)的大幅变化会引起系统的大幅变化</p>
+<p>并且位置式PID在积分项达到饱和时,误差仍然会在积分作用下继续累积，一旦误差开始反向变化，系统需要一定时间从饱和区退出，所以在u(k)达到最大和最小时，要停止积分作用，并且要有积分限幅和输出限幅。</p>
+<p><strong>增量式PID：</strong></p>
+<p>比例P :    e(k)-e(k-1)   这次误差-上次误差</p>
+<p>积分I :   e(i)     误差   </p>
+<p>微分D :  e(k) - 2e(k-1)+e(k-2)   这次误差-2*上次误差+上上次误差</p>
+<p> 增量式PID根据公式可以很好地看出，一旦确定了 KP、TI  、TD，只要使用前后三次测量值的偏差， 即可由公式求出控制增量</p>
+<p>而得出的控制量▲u(k)对应的是近几次位置误差的增量，而不是对应与实际位置的偏差     没有误差累加</p>
+<p>也就是说，增量式PID中不需要累加。控制增量Δu(k)的确定仅与最近3次的采样值有关，容易通过加权处理获得比较好的控制效果，并且在系统发生问题时，增量式不会严重影响系统的工作</p>
+<p><strong>总结：增量型 PID，是对位置型 PID 取增量，这时控制器输出的是相邻两次采样时刻所计算的位置值</strong><br><strong>之差，得到的结果是增量，即在上一次的控制量的基础上需要增加（负值意味减少）控制量。</strong></p>
+<p><code>***增量式与位置式区别：***</code><br>1增量式算法不需要做累加，控制量增量的确定仅与最近几次偏差采样值有关，计算误差对控制 量计算的影响较小。而位置式算法要用到过去偏差的累加值，容易产生较大的累加误差。 </p>
+<p>2增量式算法得出的是控制量的增量，例如在阀门控制中，只输出阀门开度的变化部分，误动作 影响小，必要时还可通过逻辑判断限制或禁止本次输出，不会严重影响系统的工作。 而位置式的输出直接对应对象的输出，因此对系统影响较大。</p>
+<p>3增量式PID控制输出的是控制量增量，并无积分作用，因此该方法适用于执行机构带积分部件的对象，如步进电机等，而位置式PID适用于执行机构不带积分部件的对象，如电液伺服阀。</p>
+<p>4在进行PID控制时，位置式PID需要有积分限幅和输出限幅，而增量式PID只需输出限幅</p>
+<p>位置式PID优缺点：<br>优点：<br>①位置式PID是一种非递推式算法，可直接控制执行机构（如平衡小车），u(k)的值和执行机构的实际位置（如小车当前角度）是一一对应的，因此在执行机构不带积分部件的对象中可以很好应用</p>
+<p>缺点：<br>①每次输出均与过去的状态有关，计算时要对e(k)进行累加，运算工作量大。</p>
+<p>增量式PID优缺点：<br>优点：<br>①误动作时影响小，必要时可用逻辑判断的方法去掉出错数据。<br>②手动/自动切换时冲击小，便于实现无扰动切换。当计算机故障时，仍能保持原值。<br>③算式中不需要累加。控制增量Δu(k)的确定仅与最近3次的采样值有关。</p>
+<p>缺点：<br>①积分截断效应大，有稳态误差；</p>
+<p>②溢出的影响大。有的被控对象用增量式则不太好；</p>
+<p>PID算法C语言实现</p>
+<p>首先，定义一个结构变量，用以存放PID运算中所需要的数据。</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> _pid<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> Set<span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//定义设定值</span>
+    <span class="token keyword">float</span> Actual<span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//定义实际值</span>
+    <span class="token keyword">float</span> Kp<span class="token punctuation">,</span>Ki<span class="token punctuation">,</span>Kd<span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//定义比例、积分、微分系数</span>
+    <span class="token keyword">float</span> err<span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//定义偏差</span>
+    <span class="token keyword">float</span> err_last<span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//定义上一个偏差</span>
+    <span class="token keyword">float</span> Sum_err<span class="token punctuation">;</span>             <span class="token comment" spellcheck="true">//定义偏差之和</span>
+    <span class="token keyword">float</span> Proportion<span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//定义输出</span>
+    <span class="token keyword">float</span> Pout<span class="token punctuation">,</span>Iout<span class="token punctuation">,</span>Dout<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//定义个分量输出</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>PID<span class="token punctuation">;</span>
+</code></pre>
+<p>其次，初始化任一PID结构体，并为其动态申请内存。</p>
+<pre class=" language-C"><code class="language-C">PID *PID_Init(float S, float Kp, float Ki, float Kd)
+&#123;
+    PID *pid_x = malloc(sizeof(PID));
+    pid_x->Set = S;
+    pid_x->Kp = Kp;
+    pid_x->Ki = Ki;
+    pid_x->Kd = Kd;
+    pid_x->err_last = 0;
+    pid_x->Sum_err = 0;
+    pid_x->Proportion = 0;
+    pid_x->Pout = 0;
+    pid_x->Iout = 0;
+    pid_x->Dout = 0;
+    return pid_x;
+&#125;
+</code></pre>
+<p>在PID运算过程；</p>
+<pre class=" language-C"><code class="language-C">void PID_Count(PID *pid_x, float Act)
+&#123;
+    pid_x->Actual = Act; //更新实际值
+    pid_x->err_last = pid_x->err;   //更新上次偏差
+    pid_x->err = pid_x->Set - pid_x->Actual; //更新当前偏差
+    pid_x->Pout = pid_x->Kp * pid_x->err; //比例输出
+    pid_x->Sum_err += pid_x->err; //误差总和   
+    pid_x->Iout = (pid_x->Ki) * (pid_x->Sum_err);   //积分输出
+    pid_x->Dout = (pid_x->Kd) * (pid_x->err - pid_x->err_last); //微分输出
+    pid_x->Proportion = pid_x->Pout + pid_x->Iout + pid_x->Dout;//总输出
+&#125;
+</code></pre>
+<p>更改PID参数</p>
+<pre class=" language-C"><code class="language-C">void PID_Set_K(PID *pid_x, float Kp, float Ki, float Kd) 
+&#123;
+    pid_x->Kp = Kp;
+    pid_x->Ki = Ki;
+    pid_x->Kd = Kd;
+&#125;
+</code></pre>
+<h2 id="3、硬件设计"><a href="#3、硬件设计" class="headerlink" title="3、硬件设计"></a>3、硬件设计</h2><p>1·主控制器件的论证与选择</p>
+<p>方案一：采用传统的51系列单片机</p>
+<p>传统的51单片机为8位机，价格便宜，控制简单，但是运算速度慢，片内资源少，存储容量小，难以存储大体积的程序和实现快速精准的反应控制，并且受时钟限制，计时精度不高，外形体积大增加了系统的控制难度。</p>
+<p>方案二：采用32位的ARM微控制器</p>
+<p>STM32F103C8T6是一款基于ARM Cortex-M 内核STM32系列的32位的微控制器，程序存储器容量是64KB，时钟频率高达72MHZ。</p>
+<p>本系统的MCU用于电机控制以及三维角度传感器的信号的采集和处理，对MCU的数据处理和计算要求较高，通过比较，选择方案二。</p>
+<p>2·飞行姿态控制的论证与选择</p>
+<p>采集模块选择：</p>
+<p>方案一：采用MPU-6050模块</p>
+<p>MPU-6050六轴模块采用高精度的陀螺仪加速计MPU6050，内部集成了姿态解算器，配合动态卡尔曼滤波算法，能够在动态环境下准确输出模块的当前姿态，姿态测量精度0.01度，稳定性极高。</p>
+<p>方案二：采用ADXL345倾角传感器</p>
+<p>ADXL345是超低功耗3轴加速度计，分辨率高（13位），数字输出数据为16位二进制补码格式，可通过SPI或I2C数字接口访问。</p>
+<p>综合以上两种方案，选择方案一。</p>
+<p>3·高度采集模块的论证与选择</p>
+<p>方案一：采用的US-100 超声波测距模块可实现 2cm~4.5m 的非接触测距功能，自带温度传感器对测距结果进行校正，同时具有 GPIO，串口等多种通信方式，工作稳定可靠。</p>
+<p>方案二：采用MS5611气压传感器，大气压是随高度变化而变化，通过大气压的变化就能转换成高度变化。</p>
+<p>方案三：采用激光测距。测量距离远，测量精度高，抗干扰能力强，但体积较大，重量较重，且价格较贵。</p>
+<p>考虑到对元器件的熟悉程度，元件的价格以及程序的编写，选择方案一。</p>
+<p>4·遥控器模块的论证与选择</p>
+<p>方案一：采用蓝牙作为遥控器。蓝牙是一种支持设备短距离通信（最大传输距离100米）的无线电技术。可做到10米左右的准确控制，可以不对准。</p>
+<p>方案二：采用红外作为遥控器。红外传输速度快，但传输距离为1~2米，须对准，为单对单传输。</p>
+<p>综合以上两种方案，考虑到准确控制飞行器的飞行，选择方案一。</p>
+<p>5.电机驱动模块</p>
+<p>方案一：298N驱动模块。采用L298N控制芯片。通过单片机改变输入到使能端的电平来控制电机的转速。但飞行器飞行时电机达到的电流远远超过L298N模块所能承受的电流。</p>
+<p>方案二：空模无刷马达电子调速器（ESC）。具有强大的耐流能力。具备出色的马达兼容性和很高的驱动效率。最高转速可以达到210000RPM（2极马达），70000 RPM（2极马达），35000（12极马达）.具有普通启动，柔和启动，超柔和启动三种模式，兼容固定飞机及直升机。可设定油门行程，兼容各种遥控器。具备输入电压异常保护，电池低压保护，油门信号丢失保护等多种保护功能。</p>
+<p>综合以上两种方案，选择方案二。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/zhu.png"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/yao.png"></h2><h2 id="4、软件设计"><a href="#4、软件设计" class="headerlink" title="4、软件设计"></a>4、软件设计</h2><p>完整代码请访问Github:<a target="_blank" rel="noopener" href="https://github.com/Zwyywz/Electronic-design">https://github.com/Zwyywz/Electronic-design</a></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210308211127050.png"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210308211152974.png"></p>
+<h2 id="5、测试验收"><a href="#5、测试验收" class="headerlink" title="5、测试验收"></a>5、测试验收</h2><p>基础部分：</p>
+<p>（1） 测试基本部分第一项，飞行器能达到A点3秒以上，然后平稳降落到地面，整个过程在15秒以内。说明飞行器能通过PID运算达到指定高度，而且且耗时短。</p>
+<p>（2） 测试基本部分第二项，飞行器能达到CD段悬停3秒以上，然后平稳降落到地面，整个过程耗时18秒。说明飞行器能通过PID运算达到指定高度，并且能维持在某个高度，耗时不是很大。</p>
+<p>（3） 测试基本部分第三项，飞行器能达到AB段悬停3秒以上，再上升到CD段悬停3秒，再平稳落地。在此过程中，在AB段悬停时黄色LED1#灯亮，在CD段悬停时红色LED2#灯亮。但整个过程耗时35秒，超出了要求。主要原因为PID运算输出的电机油门可能太小，导致上升缓慢。.</p>
+<p>（4） 测试基本部分第四项，飞行器达到能CD段的指定高度5秒以上，但是误差超过5cm，上下波动范围不超过5cm,达到要求的同时红灯，黄灯一起亮，主要是因为PID运算的积分作用太大，从而使其超调。</p>
+<p>（5） 将控制系统，电池全部安装在横板上，完成上述操作后，双旋翼出现自旋，主要原因没有用舵机来进行对飞行姿态进行调整，从而出现自旋。</p>
+<p>发挥部分：</p>
+<p>（1） 发挥部分第一项，飞行器能够达到CD段内的100cm处，并且悬停5秒。但稳定需要一定时间，人为拉到BC段内能较快恢复到原来的位置。由此可以分析PID的调节作用还是有的，但开始做PID运算时有点超调，导致悬停稳定时的时间较长。</p>
+<p>（2） 发挥部分第二项，在基础部分第四项的基础上，精度的增加还是完成不了。由此可知PID参数的选定还不够合理。</p>
+<p>（3） 发挥部分第三项，在完成基础部分第二项的基础上，按下步进键，高度增加了20cm，5秒后平稳降落。基本上完成要求。</p>
+<p>（4） 发挥部分第四项，在飞行器上挂上30g的砝码，能完成发挥部分第三项。由此可以得知通过陀螺仪测得Z轴的角度作为PID的反馈，调整两个电机的转速，从而使飞行器达到平衡并且完成相应动作。</p>
+<p>（5） 发挥部分第五项为自由发挥，飞行器分别升到A点，B点，C点，然后降到50cm处，然后平缓降落，每个点悬停的时间均为五秒。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zwy</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zwyywz.github.io/2019/09/07/%E5%8F%8C%E6%97%8B%E7%BF%BC%E9%A3%9E%E8%A1%8C%E5%99%A8/">https://zwyywz.github.io/2019/09/07/%E5%8F%8C%E6%97%8B%E7%BF%BC%E9%A3%9E%E8%A1%8C%E5%99%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zwy</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/STM32/">
+                                    <span class="chip bg-color">STM32</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6/">
+                                    <span class="chip bg-color">智能控制</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/03/07/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E7%9A%84%E4%BB%BF%E7%94%9F%E6%9C%BA%E6%A2%B0%E6%89%8B%E6%8E%8C/">
+                    <div class="card-image">
+                        
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310103941740.png" class="responsive-img" alt="基于机器视觉的机械手掌">
+                        
+                        <span class="card-title">基于机器视觉的机械手掌</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            具体功能为：石头剪刀布人机对决游戏。研究内容分为三大部分：基于OpenCV数字图像处理算法，基于卷积神经网络的深度学习算法以及PID算法。实现机器与玩家实时猜拳
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    个人项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/STM32/">
+                        <span class="chip bg-color">STM32</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">智能控制</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                        <span class="chip bg-color">树莓派</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">机器视觉</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/07/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                    <div class="card-image">
+                        
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/Raspberry_Pi_4.jpg" class="responsive-img" alt="树莓派搭建 【优雅の博客】">
+                        
+                        <span class="card-title">树莓派搭建 【优雅の博客】</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用树莓派4B搭建hexo个人博客，并且使用ypora+PicGo+Github写出优雅地博客
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    个人博客
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Zhouwy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Zwyywz" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zwy2867283770@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2867283770" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2867283770" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="机器视觉的算法研究, 小周の部落阁">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>机器视觉的算法研究 | 小周の部落阁</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小周の部落阁</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小周の部落阁</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Zwyywz" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Zwyywz" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/t.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器视觉的算法研究</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">卷积神经网络</span>
+                            </a>
+                        
+                            <a href="/tags/TensorFlow/">
+                                <span class="chip bg-color">TensorFlow</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/">
+                                <span class="chip bg-color">图像分类</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E7%A0%94%E7%A9%B6/" class="post-category">
+                                算法研究
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-07
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="机器视觉的算法研究"><a href="#机器视觉的算法研究" class="headerlink" title="机器视觉的算法研究"></a>机器视觉的算法研究</h1><p><em>本文详细解释《基于机器视觉的仿生机掌》中用到的卷积神经网络算法</em></p>
+<p>机器视觉系统就是利用机器代替人眼作出各种测量和判断。它综合了光学、机械、电子、计算机软硬件等方面的技术，涉及到计算机、图像处理、模式识别、人工智能、信号处理、光机电一体化等多个领域。本章将介绍以手势分类为基础的机器视觉算法。运用机器视觉领域中最常见卷积神经网络来以分类三种“石头”、“剪刀”、“布”三种手势。本章的主要内容包括卷积神经网络概述、手势样本的采集及处理、搭建卷积神经网络、仿真结构及分析。</p>
+<h2 id="1、卷积神经网络概述"><a href="#1、卷积神经网络概述" class="headerlink" title="1、卷积神经网络概述"></a>1、卷积神经网络概述</h2><p>卷积神经网络（Convolutional Neural Network, CNN）是一种前馈神经网络，对于大型图像处理有出色表现。卷积神经网络由一个或多个卷积层和顶端的全连通层组成，同时也包括关联权重和池化层（pooling layer）。卷积运算使得卷积神经网络能够利用输入数据的二维结构。在图像识别方面领域，卷积神经网络与其他深度学习结构相比能够给出更好的结果。</p>
+<h3 id="1-1、-卷积神经网络数学模型"><a href="#1-1、-卷积神经网络数学模型" class="headerlink" title="1.1、 卷积神经网络数学模型"></a>1.1、 卷积神经网络数学模型</h3><p>卷积网络是一种专门用于处理具有已知的、网格状拓扑数据的神经网络。既然被称为“卷积神经网络”，则表示在运算过程中采用称为卷积运算(convolutions)。卷积是一种特殊的线性操作。记为卷积运算符，则卷积运算公式写作</p>
+<p>​     <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310111526774.png"></p>
+<p>在实际使用中，需要对多维数据进行卷积运算，因此上式也需要根据实际情况进行扩展。例如，如果使用二维数字图像Image作为我们的输入，就需使用二维卷积核Kernel，则：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310111548796.png">)</p>
+<p>卷积运算是可交换的，这意味着上式可以等价为：</p>
+<p> <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310111604623.png"></p>
+<p>卷积运算由表示：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image002.gif"></p>
+<p>卷积操作主要利用了参数共享，稀疏交互和等变表示的重要思想，以及处理可变大小的输入改进机器学习系统。</p>
+<p>卷积运算后，就获得了图像的特征(feature map)，若直接用该特征图像去做分类则面临巨大计算量的挑战。例如：有一张128<em>128个像素的图像，假设通过卷积运算得到了500个定义在8</em>8输入上的特征，每个特征和图像卷积会得到一个卷积特征，则一共有(128-8+1)<em>(128-8)=14641维度的卷积特征，所以每个样本会得到一个14641</em>500=732 0500维的卷积特征向量。学习一个拥有超过七百万特征输入的分类器十分不便，并且容易出现过拟合(over-fitting)。因此需要另一种操作——池化（Pooling），池化的结果可以使得特征减少，参数减少。</p>
+<p>常见的池化方式有如下三种：</p>
+<p><strong>1)</strong> <strong>均值池化</strong>  平均池化取某个邻域的平均值作为该区域的输出值。</p>
+<p><strong>2)</strong> <strong>最大值池化</strong>  最大值池化则是某个邻域内的最大值作为输出值。</p>
+<p><strong>3)</strong> <strong>概率池化</strong>  介于前两者之间，对像素按照数值大小赋予概率，再按照概率进行输出。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image004.gif"></p>
+<h3 id="1-2、-卷积神经网络基础结构"><a href="#1-2、-卷积神经网络基础结构" class="headerlink" title="1.2、 卷积神经网络基础结构"></a>1.2、 卷积神经网络基础结构</h3><p>计算机将输入图像理解为输入若干个矩阵。卷积神经网络由卷积层、池化层、全连接层三部分构成，卷积层可以提取图像中的局部特征；池化层用来大幅降低参数量级(降维)；全连接层类似传统神经网络的部分，用来输出想要的结果。但卷积神经网络并不仅仅只有三个层级，例如下图就是由输入层、卷积层、池化层、卷积层、池化层、全连接层叠加组成，这就构成了另一类经典的卷积神经网络模型，即本课题中用以手势分类的卷积神经网络模型。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image006.gif"></p>
+<p><strong>（1）输入层</strong></p>
+<p>卷积神经网络用于图像识别时，输入层即为数字图像，而数字图像实际上是巨大的数字矩阵。矩阵中的每个数字对应于其像素的亮度。在RGB模型中，彩色图像由三个矩阵组成，分别对应三个颜色通道——红，绿，蓝。而在黑白图像中，我们只需要一个矩阵。矩阵中的每个数字的取值区间都是0到255。</p>
+<p><strong>（2）卷积层——提取特征</strong></p>
+<p>这一层的主要部分就是进行卷积操作，前面已经介绍了卷积的概念，卷积层实际上就是实现了这个卷积的计算过程，卷积将输入矩阵与第二个矩阵（卷积核）进行卷积运算。卷积过程如下所示。首先，将卷积核叠加在图像数组的左上部。接下来，所对应图片的子部分与卷积核进行卷积运算。也就是说，将卷积核与图像的左上部元素相乘，依此类推。然后，将这些结果相加来生成一个值。接着，将卷积核在图像上移动一段距离（称为步幅），并重复该过程。此过程的输出是一个具有与图像数组不同维数的新矩阵，例如，有一个常见的3*3卷积核(拉普拉斯算子)： </p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310111648024.png"></p>
+<p>经过卷积运算后，可以明显看出，图像的边缘特征已经被提取出来。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image008.gif"></p>
+<p><strong>（3）池化层——数据降维</strong></p>
+<p>池化过程的作用是降低数据的维度。在经过卷积运算之后的图中，对1000*1000像素的图片进行池化，池化窗口为10×10，最终将其降维成为一个100×100大小的特征图。之所以需要进行池化，是因为即使做完了卷积运算，图像仍然很大，所以为了降低数据维度，就需要进行池化。池化层相比卷积层可以更有效的降低数据维度，这么做不但可以大大减少运算量，还可以有效的避免过拟合[20]。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image010.gif"></p>
+<p><strong>（4）全连接层</strong></p>
+<p>在CNN结构中，经过最后一个卷积层和最后一池化层后。输出结果仍然是图像。怎么能将图像向量呢？池化后输出的是20个12<em>12的图像，怎么变成1</em>100的向量？这就需要全连接层。全连接层的输出是所有输入值与对应的权值乘积的和。全连接层的输出就是12<em>12</em>20个输入值与其权值乘积的和。这样就把一张图高度浓缩成一个数了。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image012.gif"></p>
+<h2 id="2、-手势样本采集及处理"><a href="#2、-手势样本采集及处理" class="headerlink" title="2、 手势样本采集及处理"></a>2、 手势样本采集及处理</h2><p>在深度学习框架中，最难得的就是样本数据。本次实验需要最少两万张100*100像素的各类手势图片，显然采取直接拍摄的方式是难以完成如此大量的工作。所以本组采取使用自动化脚本程序从视频自动截取各类手势图片。具体操作为，先开启摄像头并创建一个摄像头显示窗口，每隔100ms从视频中截取一张图片保存到本地文件夹，照片命名为imageX.jpg ，其中X表示序号。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image014.jpg"></p>
+<p>课题中所采集的四类样本一共为20000张图彩色图片，每类图片约5000张，分别将“石头”“剪刀”“布”“干扰手势”四种图片保存到rock、scissors、paper、others四个文件夹中。一个具有良好识别率的系统往往离不开优秀的前期处理，但我们追求的不是一个依赖于前期良好处理的识别系统，为此我们做了灰度处理和图像二值化处理。以一张“布”手势展示处理过程。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image016.gif"></p>
+<p>其中灰度处理公式为： </p>
+<p>Gray = R ∗ 0.299 + G ∗ 0.587 + B ∗ 0.114</p>
+<p>其中：R、G、B 分别代表红绿蓝三种颜色；</p>
+<h2 id="3、构建卷积神经网络"><a href="#3、构建卷积神经网络" class="headerlink" title="3、构建卷积神经网络"></a>3、构建卷积神经网络</h2><h3 id="3-1、卷积层"><a href="#3-1、卷积层" class="headerlink" title="3.1、卷积层"></a>3.1、卷积层</h3><p>卷积运算的过程为：</p>
+<p>(1) 卷积核绕核内中心元素顺时针旋转180度；</p>
+<p>(2) 将卷积核的中心元素对准需要处理的图像像素；</p>
+<p>(3) 将需要处理的图像像素值作为权重与旋转后的卷积核相乘；</p>
+<p>(4) 将上一步得到的值进行求和得到最终结果作为该图像像素的输出像素值。</p>
+<p>本文选择用离散卷积核来对图像进行处理，因为离散卷积核进行的只是优先次的整数加法运算。没有浮点运算，这使得计算机很快的计算出结果。为本课题中所用的第一层网络，包括卷积层和池化层。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> tf<span class="token punctuation">.</span>name_scope<span class="token punctuation">(</span><span class="token string">'conv1'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    W_conv1 <span class="token operator">=</span> weight_variable<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"weight"</span><span class="token punctuation">)</span>  
+    b_conv1 <span class="token operator">=</span> bias_variable<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'bias'</span><span class="token punctuation">)</span>  
+    h_conv1 <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>relu<span class="token punctuation">(</span>  
+        tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>conv2d<span class="token punctuation">(</span>x_image<span class="token punctuation">,</span> W_conv1<span class="token punctuation">,</span> strides<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">"SAME"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'conv'</span><span class="token punctuation">)</span>  
+        <span class="token operator">+</span> b_conv1<span class="token punctuation">)</span>  
+    h_pool1 <span class="token operator">=</span> tf<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>max_pool<span class="token punctuation">(</span>h_conv1<span class="token punctuation">,</span> ksize<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> strides<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  
+                             padding<span class="token operator">=</span><span class="token string">"SAME"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"pool"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>先设计权重矩阵为[3,3,1,16]，设定偏置矩阵为[16], tf.nn. conv2d()函数即可完成卷积操作。首先，x_image即为输入图像，W_conv1即为卷积核(这里与权重矩阵相同)，strides是卷积步幅，在这设定为[1,1,1,1]。Padding是定义元素边框和元素内容之间的空间，只能是”SAME”（边缘填充）或者”VALID”（边缘不填充）。tf.nn.relu()是线性整流函数，其作用是将输入小于0的值幅值为0，输入大于0的值不变。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image020.gif"></p>
+<h3 id="3-2、池化层"><a href="#3-2、池化层" class="headerlink" title="3.2、池化层"></a>3.2、池化层</h3><p>在通过卷积得到了特征了后，需要利用这些特征来进行分类。但这样产生的计算量是巨大的。为了减少计算量又同时保留原图像的信息，就需要对不同位置的特征进行聚合统计，这种聚合操作就叫为池化（pooling）操作。目前常用的池化操作为平均池化（Average pooling）和最大值池化（max pooling），在本课题中，选择最大值池化取采样窗口所有元素的最大值作为池化层的值，该方法简单易操作而且泛化能强。</p>
+<p>tf.nn.max_pooling()函数实现了最大池化操作。h_conv1是需要池化的输入，可以看出 h_conv1是卷积层输出的特征图像（feature map），依然是[batch, height, width, channels]这样的图像。Ksize是池化窗口的大小，是一个四维向量，一般是[1, 特征图像的height, 特征图像的width, 1]，不需要对batch和channels上做池化，所以这两个维度设为1。Strides与卷积相似，是窗口在每一个维度上滑动的步长。Padding也和卷积类似，可以取’VALID’ 或者’SAME’。</p>
+<h3 id="3-3、激活函数"><a href="#3-3、激活函数" class="headerlink" title="3.3、激活函数"></a>3.3、激活函数</h3><p>神经网络中的每个神经元节点接受上一层神经元的输出值作为本神经元的输入值，并将输入值传递给下一层，输入层神经元节点会将输入属性值直接传递给下一层（隐层或输出层）。在多层神经网络中，上层节点的输出和下层节点的输入之间具有一个函数关系，这个函数称为激活函数（又称激励函数）。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image022.gif"></p>
+<p>神经网络主要采用sigmoid函数或者tanh函数，输出有界，很容易充当下一层的输入。本文采用的就是sigmoid函数，其表达式为：</p>
+<p>Sigmoid的几何图像和导数图像如下图所示</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310111750894.png"></p>
+<h2 id="4、仿真结果与分析"><a href="#4、仿真结果与分析" class="headerlink" title="4、仿真结果与分析"></a>4、仿真结果与分析</h2><p>神经网络的原始输出（也就是结点的直接输出结果）不是一个概率值，实质上只是输入的数值做了复杂的加权和与非线性处理之后的一个值而已，故而需要使用激活函数来输出变成概率分布。本组使用的Sigmoid函数，它的特性是将一个数压缩到0-1之间，压缩后的结果就可以作为二分类中某一类的概率值，由于是二分类问题，所以另一类的概率值自然就是1−Sigmoid(y)，这就表征出二分类的概率。</p>
+<h3 id="4-1、交叉熵损失"><a href="#4-1、交叉熵损失" class="headerlink" title="4.1、交叉熵损失"></a>4.1、交叉熵损失</h3><p>这种概率分布就可以由交叉熵表示，交叉熵刻画的是实际输出（概率）与期望输出（概率）的距离，也就是交叉熵损失的值越小，两个概率分布就越接近。可以看出当训练样本到达第25%时，交叉熵损失就已经小于0.5了。当训练样本达到100%，交叉熵损失已经小于0.001了。说明此模型的已经很接近真实输出。性能满足课题需求。另外由下图可以看出训练准确率在训练样本到达25%时已经接近0.95，在训练样本达到100%时，准确率接近99.9%，说明此模型的准确性也达到了课题需求。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/clip_image026.gif"></p>
+<h3 id="4-2、-准确率验证"><a href="#4-2、-准确率验证" class="headerlink" title="4.2、 准确率验证"></a>4.2、 准确率验证</h3><p>建立模型之后，对于不同手势准确率进行测试。由结果可以看出，四种手势的识别准确率基本控制95%以上，虽然由于现场环境光照等原因的干扰，有时准确率低于90%，但是能很快调整，将准确率控制在92%以上。由此可见。此模型在准确率上完全符合要求。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310111803999.png"></p>
+<h2 id="5、本章小结"><a href="#5、本章小结" class="headerlink" title="5、本章小结"></a>5、本章小结</h2><p>本章主要介绍了以卷积神经网络为核心的机器视觉算法，从卷积神经网络的数学原理开始，再到卷积神经网络的基础结构。搭建了一个用于分类手势图片的深度学习模型。由最终的仿真仿真结果可以看出：最终模型随着训练时间增长，误差逐渐减小至0.005以下。在此模型中，由20%的测试集可得出，其预测精准度约为92%。由此可以得出，此模型基本满足课题要求。可以用于机械手掌在手势识别上的要求。</p>
+<p><strong>源码详见：<a target="_blank" rel="noopener" href="https://github.com/Zwyywz/Undergraduate-graduation-project">https://github.com/Zwyywz/Undergraduate-graduation-project</a></strong></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zwy</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zwyywz.github.io/2020/04/07/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%86%E7%B1%BB%E5%9B%BE%E7%89%87/">https://zwyywz.github.io/2020/04/07/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%86%E7%B1%BB%E5%9B%BE%E7%89%87/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Zwy</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">卷积神经网络</span>
+                                </a>
+                            
+                                <a href="/tags/TensorFlow/">
+                                    <span class="chip bg-color">TensorFlow</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/">
+                                    <span class="chip bg-color">图像分类</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/04/09/FreeRTOSOnStm32/">
+                    <div class="card-image">
+                        
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/20210507204431.jpeg" class="responsive-img" alt="FreeRTOS在STM32上的应用">
+                        
+                        <span class="card-title">FreeRTOS在STM32上的应用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/FreeRTOS/">
+                        <span class="chip bg-color">FreeRTOS</span>
+                    </a>
+                    
+                    <a href="/tags/STM32/">
+                        <span class="chip bg-color">STM32</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/01/DeepLearningAndTensorFlow/">
+                    <div class="card-image">
+                        
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/deep_learning.png" class="responsive-img" alt="深度学习与TensorFlow">
+                        
+                        <span class="card-title">深度学习与TensorFlow</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                    <a href="/tags/TensorFlow/">
+                        <span class="chip bg-color">TensorFlow</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Zhouwy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Zwyywz" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zwy2867283770@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2867283770" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2867283770" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
