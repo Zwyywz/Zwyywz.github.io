@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【树莓派】OpenCV3源码方式安装教程, 小周の部落阁">
+    <meta name="keywords" content="树莓派搭建 【优雅の博客】, 小周の部落阁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【树莓派】OpenCV3源码方式安装教程 | 小周の部落阁</title>
+    <title>树莓派搭建 【优雅の博客】 | 小周の部落阁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/OpenCV.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/Raspberry_Pi_4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【树莓派】OpenCV3源码方式安装教程</h1>
+                    <h1 class="description center-align post-title">树莓派搭建 【优雅の博客】</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                                <span class="chip bg-color">环境配置</span>
+                            <a href="/tags/Typora/">
+                                <span class="chip bg-color">Typora</span>
                             </a>
                         
-                            <a href="/tags/opencv/">
-                                <span class="chip bg-color">opencv</span>
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                学习笔记
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                个人博客
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-31
+                    2019-09-07
                 </div>
                 
 
@@ -481,72 +481,209 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="【树莓派】OpenCV3源码方式安装教程"><a href="#【树莓派】OpenCV3源码方式安装教程" class="headerlink" title="【树莓派】OpenCV3源码方式安装教程"></a>【树莓派】OpenCV3源码方式安装教程</h1><h2 id="一、首先我们要安装OpenCV所依赖的各种工具和图像视频库："><a href="#一、首先我们要安装OpenCV所依赖的各种工具和图像视频库：" class="headerlink" title="一、首先我们要安装OpenCV所依赖的各种工具和图像视频库："></a>一、首先我们要安装OpenCV所依赖的各种工具和图像视频库：</h2><p> 软件源更新,升级本地所有安装包，最新系统可以不升级，版本过高反而需要降级才能安装, 升级树莓派固件，固件比较新或者是Ubuntu则不用执行：</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get update 
-sudo apt-get upgrade
-sudo rpi-update  
-</code></pre>
-<p>然后安装构建OpenCV的相关工具，安装build-essential、cmake、git和pkg-config</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get install build-essential cmake git pkg-config 
-</code></pre>
-<p>之后安装常用图像工具包：安装jpeg格式图像工具包、  安装tif格式图像工具包 、安装JPEG-2000图像工具包 、安装png图像工具包：</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get install libjpeg8-dev 
-sudo apt-get install libtiff5-dev 
-sudo apt-get install libjasper-dev 
-sudo apt-get install libpng12-dev 
-</code></pre>
-<p>再安装视频I/O包：</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-</code></pre>
-<p>下面安装gtk2.0（树莓派很可能下载错误，更换中科大或者清华源即可，ubuntu有可能出现包版本过高的情况，需要将依赖包降级安装）:</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get install libgtk2.0-dev
-</code></pre>
-<p>优化函数包：</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get install libatlas-base-dev gfortran
-</code></pre>
-<p>如果你希望在Python中使用OpenCV，那么你还需要安装Python的开发包:</p>
-<pre class=" language-shell"><code class="language-shell">sudo apt-get install python-dev python3-dev
-</code></pre>
-<h2 id="二、下载源码并且Cmake编译"><a href="#二、下载源码并且Cmake编译" class="headerlink" title="二、下载源码并且Cmake编译"></a>二、下载源码并且Cmake编译</h2><p>在树莓派上目录：</p>
-<pre class=" language-shell"><code class="language-shell">wget -O opencv-3.4.3.zip https://github.com/Itseez/opencv/archive/3.4.3.zip
-wget -O opencv_contrib-3.4.3.zip https://github.com/Itseez/opencv_contrib/archive/3.4.3.zip
-unzip opencv-3.4.3.zip
-unzip opencv_contrib-3.4.3.zip
-</code></pre>
-<p>打开源码文件夹</p>
-<pre class=" language-shell"><code class="language-shell">cd opencv-3.4.3
-mkdir release
-cd release
-</code></pre>
-<p>设置cmake编译参数，安装目录默认为/usr/local ，注意参数名、等号和参数值之间不能有空格，但每行末尾“\”之前有空格，参数值最后是两个英文的点(注意！如果在root用户下执行cmake命令，请将OPENCV_EXTRA_MODULES_PATH的值改为绝对路径，如：/home/pi/opencv_contrib-3.4.3/modules)：</p>
-<pre class=" language-shell"><code class="language-shell">/** CMAKE_BUILD_TYPE是编译方式
-* CMAKE_INSTALL_PREFIX是安装目录
-* OPENCV_EXTRA_MODULES_PATH是加载额外模块
-* INSTALL_PYTHON_EXAMPLES是安装官方python例程
-* BUILD_EXAMPLES是编译例程（这两个可以不加，不加编译稍微快一点点，想要C语言的例程的话，在最后一行前加参数INSTALL_C_EXAMPLES=ON \）
-**/
+                <h1 id="树莓派搭建-【优雅の博客】"><a href="#树莓派搭建-【优雅の博客】" class="headerlink" title="树莓派搭建 【优雅の博客】"></a>树莓派搭建 【优雅の博客】</h1><h2 id="一、安装基本环境"><a href="#一、安装基本环境" class="headerlink" title="一、安装基本环境"></a>一、安装基本环境</h2><h3 id="1-1-安装树莓派系统（这里推荐Raspberry）"><a href="#1-1-安装树莓派系统（这里推荐Raspberry）" class="headerlink" title="1.1 安装树莓派系统（这里推荐Raspberry）"></a>1.1 安装树莓派系统（这里推荐Raspberry）</h3><p>官网地址：<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/">https://www.raspberrypi.org/software/</a></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/2.png"></p>
+<p>新手推荐这个带桌面的版本。</p>
+<p>由于某些众所周知的原因，如果不能科学上网，那么下载速度是这样的：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/3.png"></p>
+<p>这里推荐几个国内下载源：</p>
+<ul>
+<li>TUNA 镜像站（位于北京）：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/raspberry-pi-os-images/">https://mirrors.tuna.tsinghua.edu.cn/raspberry-pi-os-images/</a></li>
+<li>SJTUG 镜像站（位于上海）：<a target="_blank" rel="noopener" href="https://mirrors.sjtug.sjtu.edu.cn/raspberry-pi-os-images/">https://mirrors.sjtug.sjtu.edu.cn/raspberry-pi-os-images/</a></li>
+</ul>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/4.png"></p>
+<p>写盘工具有很多，这里推荐<a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">Etcher</a>,比较靠谱。target一定要选择SD卡，千万别选错！！！</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/6.png"></p>
+<p>如果想采用ssh连接树莓派，还需在写制作好的SD卡（<strong>即写盘完成后电脑上会出现的boot分区，如果没有，拔下读卡器重插一下</strong>）中加入两个文件，一个是空白的ssh文件（即新建文本文档，将文件名改为ssh，<strong>去掉后缀名</strong>，<strong>去掉后缀名</strong>，<strong>去掉后缀名</strong>），再有就是wifi配置文件，文件名为wpa_supplicant.conf。内容如下：</p>
+<pre><code>country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
 
-sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
-    -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D OPENCV_EXTRA_MODULES_PATH=/home/pi/opencv_contrib-3.4.3/modules \
-    -D INSTALL_PYTHON_EXAMPLES=ON \
-    -D BUILD_EXAMPLES=ON ..
+network=&#123;
+    ssid=&quot;zwy&quot;      
+    psk=&quot;12345678&quot;
+    priority=5
+&#125;
+network=&#123;
+    ssid=&quot;YiyaYiya&quot;
+    psk=&quot;lsluhiiin6103&quot;
+    priority=4
+&#125;
 </code></pre>
-<p>之后开始正式编译过程（如果之前一步因为网络问题导致cmake下载缺失文件失败的话，可以尝试使用手机热点，并将release文件夹删除掉，重新创建release文件夹并cmake）：</p>
-<p>编译，以管理员身份，否则容易出错</p>
-<p>make命令参数-j4指允许make使用最多4个线程进行编译</p>
-<pre class=" language-shell"><code class="language-shell">sudo make -j4
+<p>ssid:wifi名称</p>
+<p>psk:wifi密码</p>
+<p>priority:连接优先级</p>
+<p>然后，将SD卡插回树莓派上就能正常开机了。不过这里有个巨坑。</p>
+<hr>
+<p><em>树莓派4b的typeC口由于设计问题，使用非官方的充电器，很有可能没法开机，故而推荐官方充电器，如果实在没有，采用手机5V/3A充电器应该也可以（亲测华为mate系列的可以）</em></p>
+<hr>
+<h3 id="1-2-远程连接以及换源"><a href="#1-2-远程连接以及换源" class="headerlink" title="1.2 远程连接以及换源"></a>1.2 远程连接以及换源</h3><p>远程连接工具有很多，我使用的是xshell和xftp。如果是第一次接触linux系统，推荐使用远程桌面工具，不过也需先连接远程终端，安装xrdp工具，只需在命令行输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo apt-get install xrdp  
 </code></pre>
-<p>安装:</p>
-<pre class=" language-shell"><code class="language-shell">sudo make install
+<p>就可以愉快是使用远程桌面了。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/7.png"></p>
+<p>输入默认账号：pi  默认密码：raspberry</p>
+<p>连接后，更改配置，输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo raspi-config
 </code></pre>
-<p>更新动态链接库:</p>
-<pre class=" language-shell"><code class="language-shell">sudo ldconfig
+<p>选择第一项，更改密码。</p>
+<p>基本配置完成后，开始换源：</p>
+<p>第一步，先备份源文件</p>
+<pre class=" language-sh"><code class="language-sh">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 
+sudo cp /etc/apt/sources.list.d/raspi.list  
+etc/apt/sources.list.d/raspi.list.bak
 </code></pre>
-<h2 id="三、报错与解决"><a href="#三、报错与解决" class="headerlink" title="三、报错与解决"></a>三、报错与解决</h2><p>一般来说，会遇到两个问题：</p>
-<p>第一，是某个文件找不到，解决方法就是，将文件中的相对路径改成绝对路径。</p>
-<p>第二，由于Configure导致下载不全的文件列表，缺少boostdesc_bgm.i 等文件；</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1pmrPG2sa8Eg0XttldeoYcA">https://pan.baidu.com/s/1pmrPG2sa8Eg0XttldeoYcA</a><br>         提取码：smmd<br>下载好文件，放到对应文件夹即可，重新编译。</p>
+<p>第二步，编辑系统源文件</p>
+<pre class=" language-shell"><code class="language-shell">sudo nano /etc/apt/sources.list
+</code></pre>
+<p>第三步，将初始的源使用#注释掉，添加如下两行清华的镜像源。</p>
+<pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi 
+deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+</code></pre>
+<p>第四步，保存执行如下命令 sudo apt-get update，完成源的更新软件包索引。</p>
+<pre><code>sudo apt-get update&amp;&amp;sudo apt-get upgrade
+</code></pre>
+<p>第五步，还需要更改系统源</p>
+<pre class=" language-shell"><code class="language-shell">sudo nano /etc/apt/sources.list.d/raspi.list
+</code></pre>
+<p>用#注释掉原文件内容，用以下内容取代：</p>
+<pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
+</code></pre>
+<p>更改pip源<br>新建~/.pip/pip.conf文件，写入其地址。阿里云、中科大、豆瓣等都有pip源。</p>
+<pre class=" language-shell"><code class="language-shell">[global]
+index-url = http://pypi.douban.com/simple/
+</code></pre>
+<h2 id="二、相关软件配置"><a href="#二、相关软件配置" class="headerlink" title="二、相关软件配置"></a>二、相关软件配置</h2><h3 id="2-1-配置git"><a href="#2-1-配置git" class="headerlink" title="2.1 配置git"></a>2.1 配置git</h3><p>在树莓派终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo apt-get install git
+</code></pre>
+<p>在树莓派终端输入下列命令修改全局用户名（注意将引号内替换为个人帐号）：</p>
+<pre class=" language-shell"><code class="language-shell">git config --global user.name "你的GitHub/Gitee用户名"
+git config --global user.email "你的GitHub/Gitee邮箱"
+</code></pre>
+<p>然后查看是否已经全局修改用户名：</p>
+<pre class=" language-shell"><code class="language-shell">git config --list
+</code></pre>
+<p>配置完成后如下图：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122174229788.png"></p>
+<h3 id="2-2安装Node-js"><a href="#2-2安装Node-js" class="headerlink" title="2.2安装Node.js"></a>2.2安装Node.js</h3><p>首先查看树莓派的架构，树莓派终端输入命令:</p>
+<pre class=" language-shell"><code class="language-shell">uname -a
+</code></pre>
+<p>我使用的树莓派4B是基于<code>armv7</code>架构，如图所示：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122174511028.png"></p>
+<p>然后登录<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Nood.js官网</a>，我们可以看到长期支持版是<code>14.15.4</code>，可自由选择版本，如下命令根据版本变化。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122174646072.png"></p>
+<p>在树莓派终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">wget https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-armv7l.tar.xz
+</code></pre>
+<p>如果出现下载缓慢的问题我们也可以使用国内开源镜像源(某宝源)下载：</p>
+<pre class=" language-shell"><code class="language-shell">wget https://cdn.npm.taobao.org/dist/node/latest-v14.x/node-v14.15.4-linux-armv7l.tar.xz
+</code></pre>
+<p>解压二进制包，在树莓派下输入如下命令：</p>
+<pre><code>xz -d node-v14.15.4-linux-armv7l.tar.xz &amp;&amp; tar -xavf node-v14.15.4-linux-armv7l.tar
+</code></pre>
+<p>解压后，将二进制包移动到<code>/usr/local/node</code>下，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo mv ./node-v10.0.0-linux-armv7l /usr/local/node
+</code></pre>
+<p>然后为<code>node</code>和<code>npm</code>建立软连接，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo ln -s /usr/local/node/bin/node /usr/bin/node
+sudo ln -s /usr/local/node/bin/npm /usr/bin/npm
+#这类似于Windows中的快捷方式
+</code></pre>
+<p>我们通过查看<code>node</code>和<code>npm</code>版本的方式来查看是否成功，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">node -v && npm -v
+</code></pre>
+<p>至此我们完成了<code>hexo</code>博客两大准备工作<code>Git</code>和<code>Node.js</code>的配置，我们正式进入安装<code>hexo</code>博客框架。</p>
+<h2 id="三、安装Hexo"><a href="#三、安装Hexo" class="headerlink" title="三、安装Hexo"></a>三、安装Hexo</h2><p>由于国内网速问题<code>npm</code>包管理器的速度会较慢，我们利用<code>npm</code>安装<code>cnpm</code>也就是前文提到的某宝源，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
+<p>同理我们为<code>cnpm</code>建立软连接，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo ln -s /usr/local/node/bin/cnpm /usr/bin/cnpm
+</code></pre>
+<p>安装Hexo博客框架，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">cnpm install -g hexo-cli
+</code></pre>
+<p>等待执行完，我们通过查看<code>hexo</code>版本的方式来查看是否成功，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">hexo -v
+</code></pre>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122175725229.png"></p>
+<h2 id="四、使用Hexo搭建博客"><a href="#四、使用Hexo搭建博客" class="headerlink" title="四、使用Hexo搭建博客"></a>四、使用Hexo搭建博客</h2><p>创建一个目录，作为博客的根目录，名字任取，这里取<code>blog</code>，并进入<code>blog</code>目录，在终端输入:</p>
+<pre><code>sudo mkdir blog
+cd blog
+</code></pre>
+<p>初始化<code>Hexo</code>，在终端输入：</p>
+<pre><code>sudo hexo init
+</code></pre>
+<p>启动<code>Hexo</code>，在终端输入：</p>
+<pre><code>sudo hexo s
+</code></pre>
+<p>出现如下图提示后：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122180658511.png"></p>
+<p>在浏览器输入：<code>树莓派IP:4000</code></p>
+<p>可以看到我们的博客已经搭建完成了，如下图<code>hexo</code>自动生成了一篇<code>Hello World</code>的文章，文章内简介了<code>hexo</code>的用法，这里不再赘述，请仔细阅读。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Fengweicui1996/CDN/4bnoodjs/11.png"></p>
+<p>然后我们回到命令行按住<code>Ctrl+C</code>退出。所有文章均以<code>.md</code>格式保存在<code>/source/_posts</code>我们可以在此目录下删除或添加文章。</p>
+<h2 id="五、将本地Hexo博客部署到远端Github"><a href="#五、将本地Hexo博客部署到远端Github" class="headerlink" title="五、将本地Hexo博客部署到远端Github"></a>五、将本地Hexo博客部署到远端Github</h2><p>我们在<code>github</code>上新建一个仓库<code>Create a new repository</code>，注意仓库名字必须为：</p>
+<p> <strong>你的github账户名.github.io</strong></p>
+<p>后面我们将用此名字作为域名访问博客。</p>
+<p>回到树莓派终端，在博客根目录下，这是<code>/blog</code>目录下，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo cnpm install --save hexo-deployer-git
+</code></pre>
+<p>然后我们需要配置博客根目录下的<code>_config.yml</code>文件，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo nano _config.yml
+</code></pre>
+<p>进入<code>_config.yml</code>后到文件末端，如下图<br>将此处修改为:</p>
+<pre class=" language-shell"><code class="language-shell"># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/你的账户名/你的账户名.github.io
+  branch: master
+  #注意这里的冒号后要加空格
+</code></pre>
+<p>按<code>Ctrl+X</code>退出，按<code>Y</code>保存<br>然后依次执行下列三条命令</p>
+<pre class=" language-shell"><code class="language-shell">sudo hexo clean
+sudo hexo g
+sudo hexo s
+</code></pre>
+<p>在树莓派本地浏览器输入如下端口查看本地预览: <code>localhost:4000</code></p>
+<p>然后回到终端<code>Ctrl+C</code>退出，在终端输入：</p>
+<pre class=" language-shell"><code class="language-shell">sudo hexo d
+</code></pre>
+<p>输入自己的<code>github</code>用户名跟密码，即可推送到<code>github</code>，我们可以输入如下域名查看个人博客。</p>
+<pre><code>你的用户名.github.io
+</code></pre>
+<p>每次写完博客都要重复这几个步骤。</p>
+<pre><code>sudo hexo d
+sudo hexo clean &amp;&amp; sudo hexo g &amp;&amp; sudo hexo s
+</code></pre>
+<h2 id="六、Typora-PicGo-Github图床-优雅の博客"><a href="#六、Typora-PicGo-Github图床-优雅の博客" class="headerlink" title="六、Typora+PicGo+Github图床=优雅の博客"></a>六、Typora+PicGo+Github图床=优雅の博客</h2><blockquote>
+<p>Typora 是一款<strong>支持实时预览的 Markdown 文本编辑器</strong>。它有 OS X、Windows、Linux 三个平台的版本，并且由于仍在测试中，是<strong>完全免费</strong>的</p>
+<p>Typora 一直是我认为桌面端笔记应用应有的终极形态。用我之前 一篇文章 中的话来说就是，「它的<strong>功能之强大、设计之冷静、体验之美妙、理念之先进</strong>，我认为值得所有笔记应用厂商学习。</p>
+</blockquote>
+<p>首先安装<a target="_blank" rel="noopener" href="https://typora.io/#windows">typora</a>:</p>
+<p>下载-&gt;next ….. next-&gt; 完成。:grin:</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122182557137.png"></p>
+<p>下载完成后可以打开偏好设置：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122182654108.png"></p>
+<p>图片-&gt;上传图片；上传服务-&gt;PicGo,然后点击下载PicGo,会跳转到PicGo的官网</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122182912371.png"></p>
+<p>然后点击免费下载，要求版本<code>&gt;=2.2.0</code>且不推荐<code>beta</code>版,安装完成后，如图：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122183822206.png"></p>
+<p>接下来创建Github仓库；</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122183957578.png"></p>
+<p>仓库名字：任意（如image、Img皆可）</p>
+<p>切记：选择公开（Public）</p>
+<p>接下来：获得Tokens密钥，网址为：<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122184357428.png"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122184558027.png"></p>
+<p>然后配置PicGo,图床设置-&gt;GitHub图床</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210122194003722.png"></p>
+<p>设置仓库名：<code>个人名称/刚刚新建的仓库</code></p>
+<p>设置分支名：<code>master</code></p>
+<p>设置Token:<code>刚刚获取的Token</code></p>
+<hr>
+<p>一起设置完成后；</p>
+<p>大功告成！！！撒花<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。:happy:</p>
 
                 
             </div>
@@ -573,7 +710,7 @@ sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zwyywz.github.io/2021/03/31/opencv%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">https://zwyywz.github.io/2021/03/31/opencv%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</a>
+                    <a href="https://zwyywz.github.io/2019/09/07/shu-mei-pai-da-jian-ge-ren-bo-ke/">https://zwyywz.github.io/2019/09/07/shu-mei-pai-da-jian-ge-ren-bo-ke/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -611,12 +748,12 @@ sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                                    <span class="chip bg-color">环境配置</span>
+                                <a href="/tags/Typora/">
+                                    <span class="chip bg-color">Typora</span>
                                 </a>
                             
-                                <a href="/tags/opencv/">
-                                    <span class="chip bg-color">opencv</span>
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
                                 </a>
                             
                         </div>
@@ -792,23 +929,23 @@ sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/">
+                <a href="/2019/09/07/shuang-xuan-yi-fei-xing-qi/">
                     <div class="card-image">
                         
-                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/油耗.jpg" class="responsive-img" alt="汽车油耗预测实战">
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/下载.jpg" class="responsive-img" alt="升降式双旋翼飞行器">
                         
-                        <span class="card-title">汽车油耗预测实战</span>
+                        <span class="card-title">升降式双旋翼飞行器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            将利用全连接网络模型来完成汽车的效能指标MPG(Mile Per Gallon，每加仑燃油英里数)的预测问题实战
+                            制作沿竖杆升降的双旋翼飞行器及其控制系统，双旋翼飞行器由根横板和安装在横板两端的直流电机、螺旋浆组成，竖杆穿过横板中部的圆孔，通过控制两个螺旋浆的转速实现双旋翼飞行器起飞、降落以及飞行过程中的高度控制。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-07
                         </span>
                         <span class="publish-author">
                             
@@ -825,12 +962,12 @@ sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/TensorFlow/">
-                        <span class="chip bg-color">TensorFlow</span>
+                    <a href="/tags/STM32/">
+                        <span class="chip bg-color">STM32</span>
                     </a>
                     
-                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">神经网络</span>
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">智能控制</span>
                     </a>
                     
                 </div>
@@ -841,52 +978,49 @@ sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/26/DataStructAndAlgorithms/">
+                <a href="/2019/09/07/shu-mei-pai-da-jian-ge-ren-bo-ke/">
                     <div class="card-image">
                         
-                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/数据结构与算法.jpg" class="responsive-img" alt="数据结构与算法(C/C++实现)">
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/Raspberry_Pi_4.jpg" class="responsive-img" alt="树莓派搭建 【优雅の博客】">
                         
-                        <span class="card-title">数据结构与算法(C/C++实现)</span>
+                        <span class="card-title">树莓派搭建 【优雅の博客】</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            使用树莓派4B搭建hexo个人博客，并且使用ypora+PicGo+Github写出优雅地博客
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    个人博客
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -1017,13 +1151,6 @@ sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

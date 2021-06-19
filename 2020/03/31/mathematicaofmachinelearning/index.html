@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="汽车油耗预测实战, 小周の部落阁">
+    <meta name="keywords" content="机器学习中的数学原理, 小周の部落阁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>汽车油耗预测实战 | 小周の部落阁</title>
+    <title>机器学习中的数学原理 | 小周の部落阁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/油耗.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/maths.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">汽车油耗预测实战</h1>
+                    <h1 class="description center-align post-title">机器学习中的数学原理</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/TensorFlow/">
-                                <span class="chip bg-color">TensorFlow</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">神经网络</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                个人项目
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-21
+                    2020-03-31
                 </div>
                 
 
@@ -481,176 +481,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="汽车油耗预测实战"><a href="#汽车油耗预测实战" class="headerlink" title="汽车油耗预测实战"></a>汽车油耗预测实战</h1><p>将利用全连接网络模型来完成汽车的效能指标MPG(Mile Per Gallon，每加仑燃油英里数)的预测问题实战</p>
-<h2 id="1-、数据集"><a href="#1-、数据集" class="headerlink" title="1 、数据集"></a>1 、数据集</h2><p>采用<a target="_blank" rel="noopener" href="http://archive.ics.uci.edu/ml/machine-learning-databases/">http://archive.ics.uci.edu/ml/machine-learning-databases/</a> 上的Auto-MPG 数据集，它记录了各种汽车效能指标与气缸数、重量、马力等其它因子的真实数据，查看数据集的前5 项，。除了产地的数字字段表示类别外，其他字段都是数值类型。对于产地地段，1 表示美国，2 表示欧洲，3 表示日本。</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520124026048.png"></p>
-<table>
-<thead>
-<tr>
-<th>MPG</th>
-<th>Cylinders</th>
-<th>Displacement</th>
-<th>Horsepower</th>
-<th>Weight</th>
-<th>Acceleration</th>
-<th>Model Year</th>
-<th>Origin</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>每加<br/>仑燃<br/>油英<br/>里</td>
-<td>气缸数</td>
-<td>排量</td>
-<td>马力</td>
-<td>重量</td>
-<td>加速度</td>
-<td>型号</td>
-<td>年份</td>
-</tr>
-</tbody></table>
-<p>Auto MPG 数据集一共记录了398 项数据，UCI 服务器下载并读取数据集到DataFrame 对象中，代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">load_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-      dataset_path <span class="token operator">=</span> keras<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>get_file<span class="token punctuation">(</span><span class="token string">"auto-mpg.data"</span><span class="token punctuation">,</span><span class="token string">"http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"</span><span class="token punctuation">)</span>
-      <span class="token comment" spellcheck="true"># 效能（公里数每加仑），气缸数，排量，马力，重量</span>
-      <span class="token comment" spellcheck="true"># 加速度，型号年份，产地</span>
-      column_names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'MPG'</span><span class="token punctuation">,</span> <span class="token string">'Cylinders'</span><span class="token punctuation">,</span> <span class="token string">'Displacement'</span><span class="token punctuation">,</span> <span class="token string">'Horsepower'</span><span class="token punctuation">,</span> <span class="token string">'Weight'</span><span class="token punctuation">,</span>
-                      <span class="token string">'Acceleration'</span><span class="token punctuation">,</span> <span class="token string">'Model Year'</span><span class="token punctuation">,</span> <span class="token string">'Origin'</span><span class="token punctuation">]</span>
-      raw_dataset <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>dataset_path<span class="token punctuation">,</span> names<span class="token operator">=</span>column_names<span class="token punctuation">,</span>
-                                na_values<span class="token operator">=</span><span class="token string">"?"</span><span class="token punctuation">,</span> comment<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">,</span>
-                                sep<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">,</span> skipinitialspace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-      dataset <span class="token operator">=</span> raw_dataset<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> dataset
-<span class="token comment" spellcheck="true"># 查看部分数据</span>
-dataset<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>输出如图所示：</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520124255726.png"></p>
-<p>原始表格中的数据可能含有空字段(缺失值)的数据项，需要清除这些记录项。并且由于 Origin 字段为类别类型数据，我们将其移除，并转换为新的3 个字段：USA、Europe 和Japan，分别代表是否来自此产地。按着8:2 的比例切分数据集为训练集和测试集。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">preprocess_dataset</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 统计空白数据,并清除</span>
-    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 处理类别型数据，其中origin列代表了类别1,2,3,分布代表产地：美国、欧洲、日本</span>
-    <span class="token comment" spellcheck="true"># 其弹出这一列</span>
-    origin <span class="token operator">=</span> dataset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'Origin'</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 根据origin列来写入新列</span>
-    dataset<span class="token punctuation">[</span><span class="token string">'USA'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span>
-    dataset<span class="token punctuation">[</span><span class="token string">'Europe'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span>
-    dataset<span class="token punctuation">[</span><span class="token string">'Japan'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span>
-    <span class="token comment" spellcheck="true"># 切分为训练集和测试集</span>
-    train_dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>frac<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
-    test_dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>train_dataset<span class="token punctuation">.</span>index<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> train_dataset<span class="token punctuation">,</span> test_dataset
-</code></pre>
-<p>统计得到的训练集和测试集数据：</p>
-<pre class=" language-python"><code class="language-python">train_dataset<span class="token punctuation">,</span> test_dataset <span class="token operator">=</span> preprocess_dataset<span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 统计数据</span>
-sns_plot <span class="token operator">=</span> sns<span class="token punctuation">.</span>pairplot<span class="token punctuation">(</span>train_dataset<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"Cylinders"</span><span class="token punctuation">,</span> <span class="token string">"Displacement"</span><span class="token punctuation">,</span> <span class="token string">"Weight"</span><span class="token punctuation">,</span> <span class="token string">"MPG"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> diag_kind<span class="token operator">=</span><span class="token string">"kde"</span><span class="token punctuation">)</span>
-</code></pre>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E4%B8%8B%E8%BD%BD.png"></p>
-<p>统计训练集的各个字段数值的均值和标准差，并完成数据的标准化，通过norm()函数实现，代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 查看训练集的输入X的统计数据</span>
-train_stats <span class="token operator">=</span> train_dataset<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
-train_stats<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">"MPG"</span><span class="token punctuation">)</span>
-train_stats <span class="token operator">=</span> train_stats<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token punctuation">)</span>
-train_stats
-<span class="token keyword">def</span> <span class="token function">norm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> train_stats<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
-    标准化数据
-    :param x:
-    :param train_stats: get_train_stats(train_dataset)
-    :return:
-    """</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> train_stats<span class="token punctuation">[</span><span class="token string">'mean'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> train_stats<span class="token punctuation">[</span><span class="token string">'std'</span><span class="token punctuation">]</span>
-</code></pre>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520125501217.png"></p>
-<p>打印出训练集和测试集的大小：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 移动MPG油耗效能这一列为真实标签Y</span>
-train_labels <span class="token operator">=</span> train_dataset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'MPG'</span><span class="token punctuation">)</span>
-test_labels <span class="token operator">=</span> test_dataset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'MPG'</span><span class="token punctuation">)</span>
+                <h1 id="机器学习中的数学原理"><a href="#机器学习中的数学原理" class="headerlink" title="机器学习中的数学原理"></a>机器学习中的数学原理</h1><h2 id="第一讲-微积分和梯度"><a href="#第一讲-微积分和梯度" class="headerlink" title="第一讲 微积分和梯度"></a>第一讲 微积分和梯度</h2><p>主要内容</p>
+<ul>
+<li>常数e的计算过程</li>
+<li>常见函数的导数</li>
+<li>分部积分法及其应用</li>
+<li>梯度</li>
+<li>上升/下降最快方向</li>
+<li>凸函数</li>
+<li>Jensen不 等式</li>
+</ul>
+<h3 id="1、极限"><a href="#1、极限" class="headerlink" title="1、极限"></a>1、极限</h3><p>例如：求S的值：</p>
+<p>​    $S=\frac{1}{0 !}+\frac{1}{1 !}+\frac{1}{2 !}+\frac{1}{3 !}+\frac{1}{4 !}+\cdots+\frac{1}{n !}+\cdots$</p>
+<p>==夹逼定理==</p>
+<blockquote>
+<p> 在某-域上,若9(x)≤f(x)≤h(x),同时我们还知道， 当x趋向a时，9(x)的极限<br> 等于L，以及当x趋向a时，h(x)的极限也等于L，那么夹逼定理告诉我们:当x趋向a时，f(x)的极限也一 定等于L。</p>
+</blockquote>
+<p>可以求出对数函数的上升速度：</p>
+<p>问题分析：令f(x)= log<sub>a</sub>X,则:<br>$$<br>\begin{aligned}<br>&amp;\frac{f(x+\Delta x)-f(x)}{\Delta x}=\frac{\log _{a}(x+\Delta x)-\log _{a} x}{\Delta x}=\frac{\log _{a}\left(\frac{x+\Delta x}{x}\right)}{\Delta x}=\log _{a}\left(\frac{x+\Delta x}{x}\right)^{\frac{1}{\Delta x}}<br>\end{aligned}<br>$$<br>$$<br>\stackrel{\because x=1}{\longrightarrow} \log _{a}(1+\Delta x)^{\frac{1}{\Delta x}}=1 \Rightarrow \lim _{\Delta x \rightarrow 0}(1+\Delta x)^ \frac{1}{\Delta x}=a<br>$$</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> math
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span> pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
-<span class="token comment" spellcheck="true"># 进行标准化</span>
-normed_train_data <span class="token operator">=</span> norm<span class="token punctuation">(</span>train_dataset<span class="token punctuation">,</span> train_stats<span class="token punctuation">)</span>
-normed_test_data <span class="token operator">=</span> norm<span class="token punctuation">(</span>test_dataset<span class="token punctuation">,</span> train_stats<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>normed_train_data<span class="token punctuation">.</span>shape<span class="token punctuation">,</span>train_labels<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>normed_test_data<span class="token punctuation">.</span>shape<span class="token punctuation">,</span> test_labels<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+x <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0.05</span><span class="token punctuation">)</span>
+y1<span class="token operator">=</span><span class="token punctuation">[</span>math<span class="token punctuation">.</span>log<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">1.5</span><span class="token punctuation">)</span>  <span class="token keyword">for</span> a <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'#007500'</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'log1.5(x)'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span>y1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"r--"</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+y2 <span class="token operator">=</span> <span class="token punctuation">[</span>math<span class="token punctuation">.</span>log<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">for</span> a <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y2<span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'#9F35FF'</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'log2(x)'</span><span class="token punctuation">)</span>
+y3 <span class="token operator">=</span> <span class="token punctuation">[</span>math<span class="token punctuation">.</span>log<span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">for</span> a <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y3<span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'#F75000'</span> <span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'1og3(x)'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span> legend<span class="token punctuation">(</span>loc<span class="token operator">=</span><span class="token string">'lower right'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span> grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string">'./test.jpg'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span> show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<p>得到结果：</p>
-<p>(314, 9) (314,) # 训练集共314 行，输入特征长度为9,标签用一个标量表示</p>
-<p>(78, 9) (78,) # 测试集共78 行，输入特征长度为9,标签用一个标量表示</p>
-<p>可以通过简单地统计数据集中各字段之间的两两分布来观察各个字段对MPG 的影响。可以大致观察到，其中汽车排量、重量与MPG 的关系比较简单，随着排量或重量的增大，汽车的MPG 降低，能耗增加；气缸数越小，汽车能做到的最好MPG 也越高，越可能更节能，这都是是符合我们的生活经验的。</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/yuce.jpg"></p>
-<h2 id="2-、创建网络"><a href="#2-、创建网络" class="headerlink" title="2 、创建网络"></a>2 、创建网络</h2><p>考虑到 Auto-MPG 数据集规模较小，我们只创建一个3 层的全连接网络来完成MPG值的预测任务。输入𝑿的特征共有9 种，因此第一层的输入节点数为9。第一层、第二层的输出节点数设计为64和64，由于只有一种预测值，输出层输出节点设计为1。考虑MPG ∈𝑅+，因此输出层的激活函数可以不加，也可以添加ReLU 激活函数。</p>
-<p>将网络实现为一个自定义网络类，只需要在初始化函数中创建各个子网络层，并在前向计算函数call 中实现自定义网络类的计算逻辑即可。自定义网络类继承自keras.Model 基类，这也是自定义网络类的标准写法，以方便地利用keras.Model 基类提供的trainable_variables、save_weights 等各种便捷功能。网络模型类实现如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Network</span><span class="token punctuation">(</span>keras<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 回归网络</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        super<span class="token punctuation">(</span>Network<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 创建3个全连接层</span>
-        self<span class="token punctuation">.</span>fc1 <span class="token operator">=</span> layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>fc2 <span class="token operator">=</span> layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>fc3 <span class="token operator">=</span> layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">call</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 依次通过3个全连接层</span>
-        x <span class="token operator">=</span> self<span class="token punctuation">.</span>fc1<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
-        x <span class="token operator">=</span> self<span class="token punctuation">.</span>fc2<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-        x <span class="token operator">=</span> self<span class="token punctuation">.</span>fc3<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> x
-</code></pre>
-<h2 id="3、测试和训练"><a href="#3、测试和训练" class="headerlink" title="3、测试和训练"></a>3、测试和训练</h2><p>在完成主网络模型类的创建后，我们来实例化网络对象和创建优化器，代码如下:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">build_model</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    model <span class="token operator">=</span> Network<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 创建网络</span>
-    model<span class="token punctuation">.</span>build<span class="token punctuation">(</span>input_shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 通过build 函数完成内部张量的创建，其中4 为任意设置的batch 数量，9 为输入特征长度</span>
-    model<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 打印网络信息</span>
-    <span class="token keyword">return</span> model
-model <span class="token operator">=</span> build_model<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#创建模型</span>
-optimizer <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>optimizers<span class="token punctuation">.</span>RMSprop<span class="token punctuation">(</span><span class="token number">0.001</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 创建优化器，指定学习率</span>
-train_db <span class="token operator">=</span> tf<span class="token punctuation">.</span>data<span class="token punctuation">.</span>Dataset<span class="token punctuation">.</span>from_tensor_slices<span class="token punctuation">(</span><span class="token punctuation">(</span>normed_train_data<span class="token punctuation">.</span>values<span class="token punctuation">,</span> train_labels<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span>
-train_db <span class="token operator">=</span> train_db<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>batch<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>
-</code></pre>
-<p>得到网络结构如图所示：</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520131435918.png"></p>
-<p>接下来实现网络训练部分。通过Epoch 和Step 组成的双层循环训练网络，共训练200个Epoch，代码如下:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">train</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_db<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> normed_test_data<span class="token punctuation">,</span> test_labels<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    train_mae_losses <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    test_mae_losses <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 200 个Epoch</span>
-        <span class="token keyword">for</span> step<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>train_db<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 遍历一次训练集</span>
-            <span class="token keyword">with</span> tf<span class="token punctuation">.</span>GradientTape<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> tape<span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 梯度记录器，训练时需要使用它</span>
-                out <span class="token operator">=</span> model<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#通过网络得到输出</span>
-                loss <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>losses<span class="token punctuation">.</span>MSE<span class="token punctuation">(</span>y<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 计算MSE</span>
-                mae_loss <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>losses<span class="token punctuation">.</span>MAE<span class="token punctuation">(</span>y<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 计算MAE</span>
-            <span class="token keyword">if</span> step <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 间隔性地打印训练误差</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> step<span class="token punctuation">,</span> float<span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 计算梯度，并更新</span>
-            grads <span class="token operator">=</span> tape<span class="token punctuation">.</span>gradient<span class="token punctuation">(</span>loss<span class="token punctuation">,</span> model<span class="token punctuation">.</span>trainable_variables<span class="token punctuation">)</span>
-            optimizer<span class="token punctuation">.</span>apply_gradients<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>grads<span class="token punctuation">,</span> model<span class="token punctuation">.</span>trainable_variables<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        train_mae_losses<span class="token punctuation">.</span>append<span class="token punctuation">(</span>float<span class="token punctuation">(</span>mae_loss<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        out <span class="token operator">=</span> model<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span>normed_test_data<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        test_mae_losses<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>losses<span class="token punctuation">.</span>MAE<span class="token punctuation">(</span>test_labels<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> train_mae_losses<span class="token punctuation">,</span> test_mae_losses
-</code></pre>
-<p>执行如下代码即可完成整个模型的训练：</p>
-<pre class=" language-python"><code class="language-python">train_mae_losses<span class="token punctuation">,</span> test_mae_losses <span class="token operator">=</span> train<span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_db<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> normed_test_data<span class="token punctuation">,</span> test_labels<span class="token punctuation">)</span>
-</code></pre>
-<p>对于回归问题，除了MSE 均方差可以用来模型的测试性能，还可以用平均绝对误差(Mean Absolute Error，简称MAE)来衡量模型的性能，它被定义为：<br>$$<br>MAS = \frac{1}{d_{out}}\sum_{i}|y_i - o_i|<br>$$<br>程序运算时记录每个Epoch 结束时的训练和测试MAE 数据，并绘制变化曲线，在执行过程中，可以明确的看到，随着Epoch 的增加，MAS明显减小。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">plot</span><span class="token punctuation">(</span>train_mae_losses<span class="token punctuation">,</span> test_mae_losses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Epoch'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'MAE'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>train_mae_losses<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Train'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>test_mae_losses<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Test'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># plt.ylim([0,10])</span>
-    plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>train_mae_losses<span class="token punctuation">,</span> test_mae_losses<span class="token punctuation">)</span>
-</code></pre>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/finallyout.png"></p>
-<p>可以观察到，在训练到约第25 个Epoch 时，MAE 的下降变得较缓慢，其中训练集的MAE还在继续缓慢下降，但是测试集MAE 几乎保持不变，因此可以在约第25 个epoch 时提前结束训练，并利用此时的网络参数来预测新的输入样本即可。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/test.jpg"></p>
+<p>问：<br>$$<br>\lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)^{n}=?<br>$$<br>显然：由高度数学可知：<br>$$<br>\lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)^{n}=e<br>$$</p>
+<p>推到过程：<br>$$<br>\begin{array}{l}<br>x_{n}=\left(1+\frac{1}{n}\right)^{n} \<br>=1+C_{n}^{1} \frac{1}{n}+C_{n}^{2} \frac{1}{n^{2}}+C_{n}^{3} \frac{1}{n^{3}}+\cdots+C_{n}^{n} \frac{1}{n^{n}} \<br>=1+n \cdot \frac{1}{n}+\frac{n(n-1)}{2 !} \cdot \frac{1}{n^{2}}+\frac{n(n-1)(n-2)}{3 !} \cdot \frac{1}{n^{3}}+\cdots+\frac{n(n-1)(n-2) \cdots 1}{n !} \cdot \frac{1}{n^{n}} \<br>=1+1+\frac{1}{2 !} \cdot\left(1-\frac{1}{n}\right)+\frac{1}{3 !} \cdot\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)+\cdots+\frac{1}{n !} \cdot\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right) \cdots\left(1-\frac{n-1}{n}\right)<br>&lt;1+1+\frac{1}{2 !}+\frac{1}{3 !}+\cdots+\frac{1}{n !} \<br>&lt;1+1+\frac{1}{2}+\frac{1}{2^{2}}+\cdots+\frac{1}{2^{n-1}} \<br>=3-\frac{1}{2^{n-1}} \<br>&lt;3<br>\end{array}<br>$$</p>
+<p>由此，{<em>Xn</em>}是有上界的。<br>$$<br>x_{n+1}-x_{n}&gt;\frac{1}{(n+1)} \cdot\left(1-\frac{1}{n+1}\right)\left(1-\frac{2}{n+1}\right) \cdots\left(1-\frac{n}{n+1}\right)&gt;0<br>$$<br>由此，{<em>Xn</em>}是单增的。</p>
+<p>根据极限存在定义；这个极限一定是存在的。而且这是数大于2小于3。故而。我们将这个数记为:e</p>
+<p>==自然常数：==$\lim _{x \rightarrow \infty}\left(1+\frac{1}{x}\right)^{x}=e$</p>
+<p>根据前文      $a_{n}=\left(1+\frac{1}{n}\right)^{n}$中的二项展开式，已经证明数组{a<sub>n</sub>}单增有上界，因此，必有极限，记做e。对实数x，总存在整数n，使得n≤x≤n+1，得:<br>$$<br>\begin{array}{c}<br>\left(1+\frac{1}{n+1}\right)^{n}&lt;\left(1+\frac{1}{x}\right)^{x}&lt;\left(1+\frac{1}{n}\right)^{n+1} \<br>\lim _{n \rightarrow \infty}\left(1+\frac{1}{n+1}\right)^{n}=\lim _{n \rightarrow \infty} \frac{\left(1+\frac{1}{n+1}\right)^{n+1}}{1+\frac{1}{n+1}}=\frac{\lim _{n \rightarrow \infty}\left(1+\frac{1}{n+1}\right)^{n+1}}{\lim _{n \rightarrow \infty}\left(1+\frac{1}{n+1}\right)}=\frac{e}{1+0}=e \<br>\lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)^{n+1}=\lim _{n \rightarrow \infty}\left(\left(1+\frac{1}{n}\right)^{n}\left(1+\frac{1}{n}\right)\right)=\lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)^{n} \cdot \lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)=e \cdot(1+0)=e<br>\end{array}<br>$$<br>根据夹逼定理，函数$f(x)=\left(1+\frac{1}{x}\right)^{x}$的极限必然存在且为e。</p>
+<h3 id="2、导数"><a href="#2、导数" class="headerlink" title="2、导数"></a>2、导数</h3><p>简单的说，导数就是曲线的斜率，是曲线变化快慢的反应。二阶导数是斜率变化快慢的反应，表征曲线凸凹性。二阶导数连续的曲线，往往称之为“光顺”的。还记得高中物理老师时常念叨的吗:加速度的方向总是<br>指向轨迹曲线凹的一侧。根据$\lim _{x \rightarrow \infty}\left(1+\frac{1}{x}\right)^{x}=e$可以得到函数$f(x)=\ln x$的导数，进一步根据换底公式、反函数求导等，得到其他初等函数的导数。<br>$$<br>\begin{array}{cc}<br>C^{\prime}=0 &amp; \left(x^{n}\right)^{\prime}=n x^{n-1} \<br>(\sin x)^{\prime}=\cos x &amp; (\cos x)^{\prime}=-\sin x \<br>\left(a^{x}\right)^{\prime}=a^{x} \ln a &amp; \left(e^{x}\right)^{\prime}=e^{x} \<br>\left(\log _{a} x\right)^{\prime}=\frac{1}{x} \log _{a} e &amp; (\ln x)^{\prime}=\frac{1}{x} \<br>(u+v)^{\prime}-u^{\prime}+v^{\prime} &amp; (u v)^{\prime}=u^{\prime} v+u v^{\prime}<br>\end{array}<br>$$<br>掌握高等数学中的分部积分法、凑微分法、换元法….<br>$$<br>N^{\frac{1}{\log N}}= ?<br>$$<br>在计算机算法跳跃表SkipList的分析中，用到了该常数。背景:跳表是支持增删改查的动态数据结构，能够达到与平衡二叉树、红黑树近似的效率，而代码实现简单。</p>
+<p>积分应用：$N \rightarrow \infty \Rightarrow \ln N ! \rightarrow N(\ln N-1)$<br>$$<br>\begin{array}{l}<br>\ln N !=\sum_{i=1}^{N} \ln i \approx \int_{1}^{N} \ln x d x \<br>=\left.x \ln x\right|<em>{1} ^{N}-\int</em>{1}^{N} x d \ln x \<br>=N \ln N-\int_{1}^{N} \quad x \cdot \frac{1}{x} d x \<br>=N \ln N-\left.x\right|_{1} ^{N} \<br>=N \ln N-N+1 \<br>\rightarrow N \ln N-N<br>\end{array}<br>$$</p>
+<h3 id="3、方向导数"><a href="#3、方向导数" class="headerlink" title="3、方向导数"></a>3、方向导数</h3><p>如果函数Z=f(x，y)在点P(x,y)是可微分的，那么，函数在该点沿任一方向L的方向导数都存在，且有:<br>$$<br>\frac{\partial f}{\partial l}=\frac{\partial f}{\partial x} \cos \varphi+\frac{\partial f}{\partial y} \sin \varphi<br>$$<br>其中,ψ为x轴到方向L的转角。</p>
+<h3 id="4、梯度"><a href="#4、梯度" class="headerlink" title="4、梯度"></a>4、梯度</h3><p>设函数z=f(x,y)在平面区域D内具有一阶连续偏导数，则对于每一个点P(x,y)∈D，向量</p>
+<p>$\left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right)$</p>
+<p>为函数z=f(x,y)在点P的梯度，记做gradf(x,y)。梯度的方向是函数在该点变化最快的方向</p>
+<h3 id="5、凸函数"><a href="#5、凸函数" class="headerlink" title="5、凸函数"></a>5、凸函数</h3><p>若函数f的定义域domf为凸集，且满足：<br>$$<br>\begin{array}{l}<br>\forall x, y \in \operatorname{dom} f, 0 \leq \theta \leq 1, \text { 有 } \<br>f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)<br>\end{array}<br>$$<br><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210401105231130.png"></p>
+<p>==注：在机器学习中，凸函数和凹函数的定义与高等数学相反==</p>
+<p>若f一阶可微，则函数f为凸函数当前仅当f的定义域domf为凸集，且<br>$$<br>\forall x, y \in \operatorname{dom} f, f(y) \geq f(x)+\nabla f(x)^{T}(y-x)<br>$$<br><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210401105748209.png"></p>
+<p>结合凸函数图像和支撑超平面理解该问题。对于凸函数，其一阶Taylor近似本质上是该<br>函数的全局下估计。反之，如果一个函数的一阶Taylor近似总是起全局下估计，则该函数是凸函数。<br>该不等式说明从一个函数的局部信息，可以得到一定程度的全局信息。与机器学习领域中的凸优化相联系。</p>
+<h3 id="6、Jensen不等式"><a href="#6、Jensen不等式" class="headerlink" title="6、Jensen不等式"></a>6、Jensen不等式</h3><p>若f是凸函数：$f(\theta x+(1-\theta) y) \leq \theta f(x)+(1-\theta) f(y)$</p>
+<p>若 $\theta_{1}, \ldots, \theta_{k} \geq 0, \theta_{1}+\cdots+\theta_{k}=1$，则 $f\left(\theta_{1} x_{1}+\cdots+\theta_{k} x_{k}\right) \leq \theta_{1} f\left(x_{1}\right)+\cdots+\theta_{k} f\left(x_{k}\right)$</p>
+<p>若 $p(x) \geq 0$ on $S \subseteq \operatorname{dom} f, \int_{S} p(x) d x=1$，则 $f\left(\int_{S} p(x) x d x\right) \leq \int_{S} f(x) p(x) d x$</p>
+<blockquote>
+<p>可以推导得出：$f(\mathbf{E} x) \leq \mathbf{E} f(x)$</p>
+</blockquote>
+<p>Jensen不等式是几乎所有不等式的基础，例如：利用y=-logx是凸函数，证明:$\frac{a+b}{2} \geq \sqrt{a b}, \quad a&gt;0, b&gt;0$<br>提示:任取a,b&gt;0，θ=0.5带入 基本Jensen不等式，利用f(E(x))≤E(f(x))，(f是 凸函数)，证明下式D≥0<br>$$<br>D(p | q)=\sum_{x} p(x) \log \frac{p(x)}{q(x)}=E_{p(x)} \log \frac{p(x)}{q(x)}&gt;0<br>$$<br><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210401110909370.png"></p>
 
                 
             </div>
@@ -677,7 +566,7 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zwyywz.github.io/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/">https://zwyywz.github.io/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/</a>
+                    <a href="https://zwyywz.github.io/2020/03/31/mathematicaofmachinelearning/">https://zwyywz.github.io/2020/03/31/mathematicaofmachinelearning/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -715,12 +604,12 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/TensorFlow/">
-                                    <span class="chip bg-color">TensorFlow</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">神经网络</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -896,12 +785,12 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/15/YOLOv5%E5%88%9D%E4%BD%93%E9%AA%8C/">
+                <a href="/2020/04/01/deeplearningandtensorflow/">
                     <div class="card-image">
                         
-                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/yolo.jpg" class="responsive-img" alt="【YOLOv5】初体验">
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/deep_learning.png" class="responsive-img" alt="深度学习与TensorFlow">
                         
-                        <span class="card-title">【YOLOv5】初体验</span>
+                        <span class="card-title">深度学习与TensorFlow</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -912,7 +801,7 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
                         </span>
                         <span class="publish-author">
                             
@@ -929,12 +818,20 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">环境配置</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/opencv/">
-                        <span class="chip bg-color">opencv</span>
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                    <a href="/tags/TensorFlow/">
+                        <span class="chip bg-color">TensorFlow</span>
                     </a>
                     
                 </div>
@@ -948,30 +845,30 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/31/opencv%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+                <a href="/2020/03/07/ji-yu-ji-qi-shi-jue-de-fang-sheng-ji-jie-shou-zhang/">
                     <div class="card-image">
                         
-                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/OpenCV.png" class="responsive-img" alt="【树莓派】OpenCV3源码方式安装教程">
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210310103941740.png" class="responsive-img" alt="基于机器视觉的机械手掌">
                         
-                        <span class="card-title">【树莓派】OpenCV3源码方式安装教程</span>
+                        <span class="card-title">基于机器视觉的机械手掌</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            具体功能为：石头剪刀布人机对决游戏。研究内容分为三大部分：基于OpenCV数字图像处理算法，基于卷积神经网络的深度学习算法以及PID算法。实现机器与玩家实时猜拳
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    个人项目
                                 </a>
                             
                             
@@ -981,12 +878,20 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">环境配置</span>
+                    <a href="/tags/STM32/">
+                        <span class="chip bg-color">STM32</span>
                     </a>
                     
-                    <a href="/tags/opencv/">
-                        <span class="chip bg-color">opencv</span>
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6/">
+                        <span class="chip bg-color">智能控制</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                        <span class="chip bg-color">树莓派</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">机器视觉</span>
                     </a>
                     
                 </div>
@@ -1117,6 +1022,13 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
