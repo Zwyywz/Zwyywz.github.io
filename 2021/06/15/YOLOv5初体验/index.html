@@ -629,8 +629,7 @@ python train.py --img-size 640  --epochs 300 --data ./data/mydata.yaml --cfg ./m
 <p>训练之后生成的结果会通过<code>tensorboard </code>在浏览器中打开，权重文件会保存在./runs/train/expN/weights/中，里面会有best.pt和last.pt两个文件。</p>
 <p>可以看到随训练生成的分析统计：</p>
 <p>比如，三类仪表的个数和在图片中的位置统计如下：</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/labels.jpg"></p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/labels_correlogram.jpg"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/labels.jpg"><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/labels_correlogram.jpg"></p>
 <p>最后：对于验证数据集测试效果如下：</p>
 <p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/test_batch0_pred.jpg"></p>
 <p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/test_batch1_pred.jpg"></p>
@@ -644,8 +643,15 @@ python train.py --img-size 640  --epochs 300 --data ./data/mydata.yaml --cfg ./m
 <pre class=" language-shell"><code class="language-shell">python detect.py --source /YourMP4dir/test.mp4 --weights ./runs/train/expN/weights/best.pt 
 </code></pre>
 <p>结果如下：</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image261.MP4"></p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image263.MP4"></p>
+<p><video width="720" height="303" controls> #或者：&lt;video width:60% height:auto controls&gt;</p>
+<source src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image261.MP4" type="video/mp4">
+</video>
+
+<p><video width="720" height="303" controls> #或者：&lt;video width:60% height:auto controls&gt;</p>
+<source src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image263.MP4" type="video/mp4">
+</video>
+
+
 
                 
             </div>
