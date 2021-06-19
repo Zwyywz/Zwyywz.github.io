@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="汽车油耗预测实战, 小周の部落阁">
+    <meta name="keywords" content="【YOLOv5】初体验, 小周の部落阁">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>汽车油耗预测实战 | 小周の部落阁</title>
+    <title>【YOLOv5】初体验 | 小周の部落阁</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/油耗.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://blog-1300216920.cos.ap-nanjing.myqcloud.com/yolo.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">汽车油耗预测实战</h1>
+                    <h1 class="description center-align post-title">【YOLOv5】初体验</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/TensorFlow/">
-                                <span class="chip bg-color">TensorFlow</span>
+                            <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+                                <span class="chip bg-color">环境配置</span>
                             </a>
                         
-                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">神经网络</span>
+                            <a href="/tags/opencv/">
+                                <span class="chip bg-color">opencv</span>
                             </a>
                         
                     </div>
@@ -447,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                个人项目
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-21
+                    2021-06-15
                 </div>
                 
 
@@ -481,176 +481,171 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="汽车油耗预测实战"><a href="#汽车油耗预测实战" class="headerlink" title="汽车油耗预测实战"></a>汽车油耗预测实战</h1><p>将利用全连接网络模型来完成汽车的效能指标MPG(Mile Per Gallon，每加仑燃油英里数)的预测问题实战</p>
-<h2 id="1-、数据集"><a href="#1-、数据集" class="headerlink" title="1 、数据集"></a>1 、数据集</h2><p>采用<a target="_blank" rel="noopener" href="http://archive.ics.uci.edu/ml/machine-learning-databases/">http://archive.ics.uci.edu/ml/machine-learning-databases/</a> 上的Auto-MPG 数据集，它记录了各种汽车效能指标与气缸数、重量、马力等其它因子的真实数据，查看数据集的前5 项，。除了产地的数字字段表示类别外，其他字段都是数值类型。对于产地地段，1 表示美国，2 表示欧洲，3 表示日本。</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520124026048.png"></p>
-<table>
-<thead>
-<tr>
-<th>MPG</th>
-<th>Cylinders</th>
-<th>Displacement</th>
-<th>Horsepower</th>
-<th>Weight</th>
-<th>Acceleration</th>
-<th>Model Year</th>
-<th>Origin</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>每加<br/>仑燃<br/>油英<br/>里</td>
-<td>气缸数</td>
-<td>排量</td>
-<td>马力</td>
-<td>重量</td>
-<td>加速度</td>
-<td>型号</td>
-<td>年份</td>
-</tr>
-</tbody></table>
-<p>Auto MPG 数据集一共记录了398 项数据，UCI 服务器下载并读取数据集到DataFrame 对象中，代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">load_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-      dataset_path <span class="token operator">=</span> keras<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>get_file<span class="token punctuation">(</span><span class="token string">"auto-mpg.data"</span><span class="token punctuation">,</span><span class="token string">"http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"</span><span class="token punctuation">)</span>
-      <span class="token comment" spellcheck="true"># 效能（公里数每加仑），气缸数，排量，马力，重量</span>
-      <span class="token comment" spellcheck="true"># 加速度，型号年份，产地</span>
-      column_names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'MPG'</span><span class="token punctuation">,</span> <span class="token string">'Cylinders'</span><span class="token punctuation">,</span> <span class="token string">'Displacement'</span><span class="token punctuation">,</span> <span class="token string">'Horsepower'</span><span class="token punctuation">,</span> <span class="token string">'Weight'</span><span class="token punctuation">,</span>
-                      <span class="token string">'Acceleration'</span><span class="token punctuation">,</span> <span class="token string">'Model Year'</span><span class="token punctuation">,</span> <span class="token string">'Origin'</span><span class="token punctuation">]</span>
-      raw_dataset <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>dataset_path<span class="token punctuation">,</span> names<span class="token operator">=</span>column_names<span class="token punctuation">,</span>
-                                na_values<span class="token operator">=</span><span class="token string">"?"</span><span class="token punctuation">,</span> comment<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">,</span>
-                                sep<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">,</span> skipinitialspace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-      dataset <span class="token operator">=</span> raw_dataset<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token keyword">return</span> dataset
-<span class="token comment" spellcheck="true"># 查看部分数据</span>
-dataset<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <h1 id="【YOLOv5】初体验"><a href="#【YOLOv5】初体验" class="headerlink" title="【YOLOv5】初体验"></a>【YOLOv5】初体验</h1><h2 id="1、-Yolov5简介"><a href="#1、-Yolov5简介" class="headerlink" title="1、 Yolov5简介"></a>1、 Yolov5简介</h2><p>Yolov5官方代码中，给出的目标检测网络中一共有4个版本，分别是<strong>Yolov5s、Yolov5m、Yolov5l、Yolov5x</strong>四个模型。</p>
+<p>Yolov5的结构和Yolov4很相似，但也有一些不同。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/v2-770a51ddf78b084affff948bb522b6c0_720w.jpg"></p>
+<p>上图即<strong>Yolov5</strong>的网络结构图，可以看出，还是分为<strong>输入端、Backbone、Neck、Prediction</strong>四个部分。</p>
+<p>大家可能对<strong>Yolov3</strong>比较熟悉，因此大白列举它和Yolov3的一些主要的不同点，并和Yolov4进行比较。</p>
+<p>​    <strong>（1）输入端：</strong>Mosaic数据增强、自适应锚框计算、自适应图片缩放<br>​            <strong>（2）Backbone：</strong>Focus结构，CSP结构<br>​            <strong>（3）Neck：</strong>FPN+PAN结构<br>​            <strong>（4）Prediction：</strong>GIOU_Loss</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210618092709617.png"></p>
+<p>Yolov5作者也是在COCO数据集上进行的测试，COCO数据集的小目标占比，因此最终的四种网络结构，性能上来说各有千秋。Yolov5s网络最小，速度最少，AP精度也最低。但如果检测的以大目标为主，追求速度，倒也是个不错的选择。其他的三种网络，在此基础上，不断加深加宽网络，AP精度也不断提升，但速度的消耗也在不断增加。</p>
+<p><strong>总结：在目标检测领域，速度比YOLO快的，精度基本没有YOLO高。精度比YOLO高的，速度基本没有YOLO快。</strong></p>
+<h2 id="2、环境依赖"><a href="#2、环境依赖" class="headerlink" title="2、环境依赖"></a>2、环境依赖</h2><p><strong>本人环境声明：</strong></p>
+<p><strong>主机：</strong><code>极链AI云GPU服务器，GPU为TITAN Xp 24。配置如下。</code></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210618093419130.png"></p>
+<p><strong>系统：</strong><code>ubuntu 18.04</code></p>
+<p><strong>开发工具：</strong><code>vscode+ssh</code></p>
+<p><strong>step1、克隆项目</strong></p>
+<p>YOLOv5源码托管在github上：</p>
+<pre class=" language-shell"><code class="language-shell">git clone https://github.com/ultralytics/yolov5.git
 </code></pre>
-<p>输出如图所示：</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520124255726.png"></p>
-<p>原始表格中的数据可能含有空字段(缺失值)的数据项，需要清除这些记录项。并且由于 Origin 字段为类别类型数据，我们将其移除，并转换为新的3 个字段：USA、Europe 和Japan，分别代表是否来自此产地。按着8:2 的比例切分数据集为训练集和测试集。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">preprocess_dataset</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 统计空白数据,并清除</span>
-    dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 处理类别型数据，其中origin列代表了类别1,2,3,分布代表产地：美国、欧洲、日本</span>
-    <span class="token comment" spellcheck="true"># 其弹出这一列</span>
-    origin <span class="token operator">=</span> dataset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'Origin'</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 根据origin列来写入新列</span>
-    dataset<span class="token punctuation">[</span><span class="token string">'USA'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span>
-    dataset<span class="token punctuation">[</span><span class="token string">'Europe'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span>
-    dataset<span class="token punctuation">[</span><span class="token string">'Japan'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1.0</span>
-    <span class="token comment" spellcheck="true"># 切分为训练集和测试集</span>
-    train_dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>frac<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">,</span> random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
-    test_dataset <span class="token operator">=</span> dataset<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>train_dataset<span class="token punctuation">.</span>index<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> train_dataset<span class="token punctuation">,</span> test_dataset
+<p><strong>step2、安装必要的环境</strong></p>
+<ol>
+<li>下载[<a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual#linux">Anaconda</a>]，执行安装指令：<pre class=" language-shell"><code class="language-shell">bash /your_dir/Anaconda3-2021.05-Linux-x86_64.sh
 </code></pre>
-<p>统计得到的训练集和测试集数据：</p>
-<pre class=" language-python"><code class="language-python">train_dataset<span class="token punctuation">,</span> test_dataset <span class="token operator">=</span> preprocess_dataset<span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 统计数据</span>
-sns_plot <span class="token operator">=</span> sns<span class="token punctuation">.</span>pairplot<span class="token punctuation">(</span>train_dataset<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"Cylinders"</span><span class="token punctuation">,</span> <span class="token string">"Displacement"</span><span class="token punctuation">,</span> <span class="token string">"Weight"</span><span class="token punctuation">,</span> <span class="token string">"MPG"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> diag_kind<span class="token operator">=</span><span class="token string">"kde"</span><span class="token punctuation">)</span>
+</li>
+</ol>
+<p>如若不更改安装路径，一直回车或者输入yes即可完成安装</p>
+<p>接下来创建YOLOv5的虚拟环境，以便于隔离不同Python版本之间的影响：</p>
+<pre class=" language-shell"><code class="language-shell">conda create --name YOLOv5 python=3.8#创建虚拟环境
+conda activate YOLOv5#激活虚拟环境
 </code></pre>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/%E4%B8%8B%E8%BD%BD.png"></p>
-<p>统计训练集的各个字段数值的均值和标准差，并完成数据的标准化，通过norm()函数实现，代码如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 查看训练集的输入X的统计数据</span>
-train_stats <span class="token operator">=</span> train_dataset<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
-train_stats<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">"MPG"</span><span class="token punctuation">)</span>
-train_stats <span class="token operator">=</span> train_stats<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token punctuation">)</span>
-train_stats
-<span class="token keyword">def</span> <span class="token function">norm</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> train_stats<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
-    标准化数据
-    :param x:
-    :param train_stats: get_train_stats(train_dataset)
-    :return:
-    """</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> train_stats<span class="token punctuation">[</span><span class="token string">'mean'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> train_stats<span class="token punctuation">[</span><span class="token string">'std'</span><span class="token punctuation">]</span>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210618094815452.png"></p>
+<ol start="2">
+<li><p>安装Pytorch,在官网可以找到安装指令，选择Stable(1.9.0)版本，Linux操作系统，Conda开发环境，Python开发语言，CUDA 11.1。便能得到安装指令：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210618100100769.png"></p>
+</li>
+</ol>
+<pre class=" language-shell"><code class="language-shell">conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia
 </code></pre>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520125501217.png"></p>
-<p>打印出训练集和测试集的大小：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 移动MPG油耗效能这一列为真实标签Y</span>
-train_labels <span class="token operator">=</span> train_dataset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'MPG'</span><span class="token punctuation">)</span>
-test_labels <span class="token operator">=</span> test_dataset<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'MPG'</span><span class="token punctuation">)</span>
+<ol start="3">
+<li>安装其他必备环境，YOLOv5其他必备环境都写在代码包里面，有个requirements.txt文件，其中包括了一些基本的必备环境。只需执行如下指令即可安装。</li>
+</ol>
+<pre class=" language-shell"><code class="language-shell">pip install -U -r requirements.txt
+</code></pre>
+<h2 id="3-、设置样本数据和标签"><a href="#3-、设置样本数据和标签" class="headerlink" title="3 、设置样本数据和标签"></a>3 、设置样本数据和标签</h2><p>此次样本数据来自某电厂的仪器仪表数据，主要是识别照片中的仪器仪表位置。</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210618104902350.png"></p>
+<p>  首先，通过一个简单的脚本rename.py为这些照片进行重命名:</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#rename.py</span>
+<span class="token comment" spellcheck="true">#coding:UTF-8</span>
+<span class="token keyword">import</span> os
+folder_path <span class="token operator">=</span> <span class="token string">"/样本数据的路径/"</span>
+file_list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>folder_path<span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>folder_path<span class="token punctuation">)</span>   
+n<span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">for</span> old_name <span class="token keyword">in</span> file_list<span class="token punctuation">:</span>
+    new_name <span class="token operator">=</span> <span class="token string">"image"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">".JPG"</span>
+    os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>old_name<span class="token punctuation">,</span> new_name<span class="token punctuation">)</span>
+    n<span class="token operator">=</span>n<span class="token operator">+</span><span class="token number">1</span>
+</code></pre>
+<p>可以得到如下结果：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210618105318363.png"></p>
+<p>接下来，为样本数据设置标签（labels）。这里使用的labelImg工具。可以直接使pip安装</p>
+<pre class=" language-shell"><code class="language-shell">pip isntall labelImg#安装labelImg
+</code></pre>
+<p><code>labelImg</code>是一款是用于制作数据集时，对数据集进行标注的工具，labelImg是深度学习最常用的标注工具之一。</p>
+<p><strong>注意：labels文件夹应和images文件在同一路径下。且labels文件夹下应有一个名为classes.txt文件，里面写着分类类别。</strong></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/llll.png"></p>
+<p>运行方法为在命令行工具（Windows下可以是CMD 、Powershell等），指定image路径和分类标签路径。</p>
+<pre class=" language-shell"><code class="language-shell">label /image路径/   /label标签保存路径/classs.txt
+</code></pre>
+<p>之后会弹出labelImg的UI页面：将数据格式设置为YOLO才能生成txt格式的标签，按W快速选择目标区域，按A/D为上一张/下一张。 </p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210619142519252.png"></p>
+<p>标记完所有图片后会得到如图所示的文件结构：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210619151051478.png"></p>
+<p>至此，样本数据就准备完毕。</p>
+<h2 id="4、正式训练模型"><a href="#4、正式训练模型" class="headerlink" title="4、正式训练模型"></a>4、正式训练模型</h2><p>在YOLOv5项目的<code>./models</code>文件夹下选择一个需要训练的模型，这里我们选择yolov5s.yaml,最小的一个模型进行训练，参考官方README中的<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a>,了解不同模型的大小和推断速度。如果你选定了一个模型，那么需要修改模型对应的<code>yaml</code>文件</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># parameters</span>
+<span class="token key atrule">nc</span><span class="token punctuation">:</span> <span class="token number">3  </span><span class="token comment" spellcheck="true"># number of classes     &lt;------------> 设置为自己数据集的类别个数</span>
+<span class="token key atrule">depth_multiple</span><span class="token punctuation">:</span> <span class="token number">0.33  </span><span class="token comment" spellcheck="true"># model depth multiple</span>
+<span class="token key atrule">width_multiple</span><span class="token punctuation">:</span> <span class="token number">0.50  </span><span class="token comment" spellcheck="true"># layer channel multiple</span>
 
-<span class="token comment" spellcheck="true"># 进行标准化</span>
-normed_train_data <span class="token operator">=</span> norm<span class="token punctuation">(</span>train_dataset<span class="token punctuation">,</span> train_stats<span class="token punctuation">)</span>
-normed_test_data <span class="token operator">=</span> norm<span class="token punctuation">(</span>test_dataset<span class="token punctuation">,</span> train_stats<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># anchors</span>
+<span class="token key atrule">anchors</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># P3/8</span>
+  <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">61</span><span class="token punctuation">,</span> <span class="token number">62</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">59</span><span class="token punctuation">,</span><span class="token number">119</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># P4/16</span>
+  <span class="token punctuation">-</span> <span class="token punctuation">[</span><span class="token number">116</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">156</span><span class="token punctuation">,</span><span class="token number">198</span><span class="token punctuation">,</span> <span class="token number">373</span><span class="token punctuation">,</span><span class="token number">326</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># P5/32</span>
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>normed_train_data<span class="token punctuation">.</span>shape<span class="token punctuation">,</span>train_labels<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>normed_test_data<span class="token punctuation">.</span>shape<span class="token punctuation">,</span> test_labels<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
-</code></pre>
-<p>得到结果：</p>
-<p>(314, 9) (314,) # 训练集共314 行，输入特征长度为9,标签用一个标量表示</p>
-<p>(78, 9) (78,) # 测试集共78 行，输入特征长度为9,标签用一个标量表示</p>
-<p>可以通过简单地统计数据集中各字段之间的两两分布来观察各个字段对MPG 的影响。可以大致观察到，其中汽车排量、重量与MPG 的关系比较简单，随着排量或重量的增大，汽车的MPG 降低，能耗增加；气缸数越小，汽车能做到的最好MPG 也越高，越可能更节能，这都是是符合我们的生活经验的。</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/yuce.jpg"></p>
-<h2 id="2-、创建网络"><a href="#2-、创建网络" class="headerlink" title="2 、创建网络"></a>2 、创建网络</h2><p>考虑到 Auto-MPG 数据集规模较小，我们只创建一个3 层的全连接网络来完成MPG值的预测任务。输入𝑿的特征共有9 种，因此第一层的输入节点数为9。第一层、第二层的输出节点数设计为64和64，由于只有一种预测值，输出层输出节点设计为1。考虑MPG ∈𝑅+，因此输出层的激活函数可以不加，也可以添加ReLU 激活函数。</p>
-<p>将网络实现为一个自定义网络类，只需要在初始化函数中创建各个子网络层，并在前向计算函数call 中实现自定义网络类的计算逻辑即可。自定义网络类继承自keras.Model 基类，这也是自定义网络类的标准写法，以方便地利用keras.Model 基类提供的trainable_variables、save_weights 等各种便捷功能。网络模型类实现如下：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Network</span><span class="token punctuation">(</span>keras<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 回归网络</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        super<span class="token punctuation">(</span>Network<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 创建3个全连接层</span>
-        self<span class="token punctuation">.</span>fc1 <span class="token operator">=</span> layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>fc2 <span class="token operator">=</span> layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>fc3 <span class="token operator">=</span> layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># YOLOv5 backbone</span>
+<span class="token key atrule">backbone</span><span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true"># [from, number, module, args]</span>
+  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Focus<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 0-P1/2</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 1-P2/4</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 3-P3/8</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 5-P4/16</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 7-P5/32</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> SPP<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token boolean important">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 9</span>
+  <span class="token punctuation">]</span>
 
-    <span class="token keyword">def</span> <span class="token function">call</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 依次通过3个全连接层</span>
-        x <span class="token operator">=</span> self<span class="token punctuation">.</span>fc1<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
-        x <span class="token operator">=</span> self<span class="token punctuation">.</span>fc2<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-        x <span class="token operator">=</span> self<span class="token punctuation">.</span>fc3<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># YOLOv5 head</span>
+<span class="token key atrule">head</span><span class="token punctuation">:</span>
+  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> nn.Upsample<span class="token punctuation">,</span> <span class="token punctuation">[</span>None<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'nearest'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Concat<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># cat backbone P4</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token boolean important">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 13</span>
 
-        <span class="token keyword">return</span> x
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> nn.Upsample<span class="token punctuation">,</span> <span class="token punctuation">[</span>None<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'nearest'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Concat<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># cat backbone P3</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token boolean important">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 17 (P3/8-small)</span>
+
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Concat<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># cat head P4</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token boolean important">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 20 (P4/16-medium)</span>
+
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Conv<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Concat<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># cat head P5</span>
+   <span class="token punctuation">[</span><span class="token number">-1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> C3<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">,</span> <span class="token boolean important">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 23 (P5/32-large)</span>
+
+   <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Detect<span class="token punctuation">,</span> <span class="token punctuation">[</span>nc<span class="token punctuation">,</span> anchors<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># Detect(P3, P4, P5)</span>
+  <span class="token punctuation">]</span>
 </code></pre>
-<h2 id="3、测试和训练"><a href="#3、测试和训练" class="headerlink" title="3、测试和训练"></a>3、测试和训练</h2><p>在完成主网络模型类的创建后，我们来实例化网络对象和创建优化器，代码如下:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">build_model</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    model <span class="token operator">=</span> Network<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 创建网络</span>
-    model<span class="token punctuation">.</span>build<span class="token punctuation">(</span>input_shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 通过build 函数完成内部张量的创建，其中4 为任意设置的batch 数量，9 为输入特征长度</span>
-    model<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 打印网络信息</span>
-    <span class="token keyword">return</span> model
-model <span class="token operator">=</span> build_model<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#创建模型</span>
-optimizer <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>optimizers<span class="token punctuation">.</span>RMSprop<span class="token punctuation">(</span><span class="token number">0.001</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 创建优化器，指定学习率</span>
-train_db <span class="token operator">=</span> tf<span class="token punctuation">.</span>data<span class="token punctuation">.</span>Dataset<span class="token punctuation">.</span>from_tensor_slices<span class="token punctuation">(</span><span class="token punctuation">(</span>normed_train_data<span class="token punctuation">.</span>values<span class="token punctuation">,</span> train_labels<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span>
-train_db <span class="token operator">=</span> train_db<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span>batch<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>
+<p>参考官方的数据集格式，需要通过一个yaml文件指定数据集的来源。故而新建一个data.yaml文件放在data文件下，容如下：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]</span>
+<span class="token key atrule">train</span><span class="token punctuation">:</span> /root/yolov51/mydata/images/  <span class="token comment" spellcheck="true"># 训练数据集</span>
+<span class="token key atrule">val</span><span class="token punctuation">:</span> /root/yolov51/mydata/images/  <span class="token comment" spellcheck="true"># 测试数据集</span>
+<span class="token comment" spellcheck="true"># number of classes</span>
+<span class="token key atrule">nc</span><span class="token punctuation">:</span> <span class="token number">3</span>
+<span class="token comment" spellcheck="true"># class names</span>
+<span class="token key atrule">names</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'Pointer-instrument'</span><span class="token punctuation">,</span><span class="token string">'Digital-display-instrument'</span><span class="token punctuation">,</span><span class="token string">'Indicator-light'</span> <span class="token punctuation">]</span>
 </code></pre>
-<p>得到网络结构如图所示：</p>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210520131435918.png"></p>
-<p>接下来实现网络训练部分。通过Epoch 和Step 组成的双层循环训练网络，共训练200个Epoch，代码如下:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">train</span><span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_db<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> normed_test_data<span class="token punctuation">,</span> test_labels<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    train_mae_losses <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    test_mae_losses <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 200 个Epoch</span>
-        <span class="token keyword">for</span> step<span class="token punctuation">,</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>train_db<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 遍历一次训练集</span>
-            <span class="token keyword">with</span> tf<span class="token punctuation">.</span>GradientTape<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> tape<span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 梯度记录器，训练时需要使用它</span>
-                out <span class="token operator">=</span> model<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#通过网络得到输出</span>
-                loss <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>losses<span class="token punctuation">.</span>MSE<span class="token punctuation">(</span>y<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 计算MSE</span>
-                mae_loss <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>losses<span class="token punctuation">.</span>MAE<span class="token punctuation">(</span>y<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 计算MAE</span>
-            <span class="token keyword">if</span> step <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 间隔性地打印训练误差</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> step<span class="token punctuation">,</span> float<span class="token punctuation">(</span>loss<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 计算梯度，并更新</span>
-            grads <span class="token operator">=</span> tape<span class="token punctuation">.</span>gradient<span class="token punctuation">(</span>loss<span class="token punctuation">,</span> model<span class="token punctuation">.</span>trainable_variables<span class="token punctuation">)</span>
-            optimizer<span class="token punctuation">.</span>apply_gradients<span class="token punctuation">(</span>zip<span class="token punctuation">(</span>grads<span class="token punctuation">,</span> model<span class="token punctuation">.</span>trainable_variables<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        train_mae_losses<span class="token punctuation">.</span>append<span class="token punctuation">(</span>float<span class="token punctuation">(</span>mae_loss<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        out <span class="token operator">=</span> model<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span>normed_test_data<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        test_mae_losses<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>reduce_mean<span class="token punctuation">(</span>losses<span class="token punctuation">.</span>MAE<span class="token punctuation">(</span>test_labels<span class="token punctuation">,</span> out<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> train_mae_losses<span class="token punctuation">,</span> test_mae_losses
+<p>做好以上准备工作后，就可以开始训练，YOLOv5的训练文件为：train.py。在阅读源码后，发现至少需要指定如下参数才能正常训练：</p>
+<pre class=" language-shell"><code class="language-shell"># Train yolov5x on score for 300 epochs
+python train.py --img-size 640  --epochs 300 --data ./data/mydata.yaml --cfg ./models/yolov5s.yaml --weights ./yolov5s.pt
 </code></pre>
-<p>执行如下代码即可完成整个模型的训练：</p>
-<pre class=" language-python"><code class="language-python">train_mae_losses<span class="token punctuation">,</span> test_mae_losses <span class="token operator">=</span> train<span class="token punctuation">(</span>model<span class="token punctuation">,</span> train_db<span class="token punctuation">,</span> optimizer<span class="token punctuation">,</span> normed_test_data<span class="token punctuation">,</span> test_labels<span class="token punctuation">)</span>
+<ul>
+<li><code> --img-size</code>：输入图片的大小</li>
+<li><code>--epochs</code>：训练步长</li>
+<li><code>--data </code>:数据集配置文件</li>
+<li><code>--cfg </code>：模型配置文件</li>
+<li><code>--weights</code>：权重配置文件</li>
+</ul>
+<p>开始训练后会出现如下结果，则表示训练正常：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image-20210619125153656.png"></p>
+<p>训练之后生成的结果会通过<code>tensorboard </code>在浏览器中打开，权重文件会保存在./runs/train/expN/weights/中，里面会有best.pt和last.pt两个文件。</p>
+<p>可以看到随训练生成的分析统计：</p>
+<p>比如，三类仪表的个数和在图片中的位置统计如下：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/labels.jpg"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/labels_correlogram.jpg"></p>
+<p>最后：对于验证数据集测试效果如下：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/test_batch0_pred.jpg"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/test_batch1_pred.jpg"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/test_batch2_pred.jpg"></p>
+<h2 id="5、检测仪表位置"><a href="#5、检测仪表位置" class="headerlink" title="5、检测仪表位置"></a>5、检测仪表位置</h2><p>YOLOv5中提供了detect.py脚本，可以检测单张图片，多张图片，以及视频。</p>
+<p>单张图片测试命令：</p>
+<pre class=" language-python"><code class="language-python">python detect<span class="token punctuation">.</span>py <span class="token operator">-</span><span class="token operator">-</span>source inference<span class="token operator">/</span>image0<span class="token punctuation">.</span>jpg <span class="token operator">-</span><span class="token operator">-</span>weights <span class="token punctuation">.</span><span class="token operator">/</span>runs<span class="token operator">/</span>train<span class="token operator">/</span>expN<span class="token operator">/</span>weights<span class="token operator">/</span>best<span class="token punctuation">.</span>pt 
 </code></pre>
-<p>对于回归问题，除了MSE 均方差可以用来模型的测试性能，还可以用平均绝对误差(Mean Absolute Error，简称MAE)来衡量模型的性能，它被定义为：<br>$$<br>MAS = \frac{1}{d_{out}}\sum_{i}|y_i - o_i|<br>$$<br>程序运算时记录每个Epoch 结束时的训练和测试MAE 数据，并绘制变化曲线，在执行过程中，可以明确的看到，随着Epoch 的增加，MAS明显减小。</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">plot</span><span class="token punctuation">(</span>train_mae_losses<span class="token punctuation">,</span> test_mae_losses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Epoch'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'MAE'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>train_mae_losses<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Train'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>test_mae_losses<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'Test'</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># plt.ylim([0,10])</span>
-    plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plot<span class="token punctuation">(</span>train_mae_losses<span class="token punctuation">,</span> test_mae_losses<span class="token punctuation">)</span>
+<p>预测结构会保存在./runs/detect/中</p>
+<p>这里以一段视频为例：</p>
+<pre class=" language-shell"><code class="language-shell">python detect.py --source /YourMP4dir/test.mp4 --weights ./runs/train/expN/weights/best.pt 
 </code></pre>
-<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/finallyout.png"></p>
-<p>可以观察到，在训练到约第25 个Epoch 时，MAE 的下降变得较缓慢，其中训练集的MAE还在继续缓慢下降，但是测试集MAE 几乎保持不变，因此可以在约第25 个epoch 时提前结束训练，并利用此时的网络参数来预测新的输入样本即可。</p>
+<p>结果如下：</p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image261.MP4"></p>
+<p><img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/image263.MP4"></p>
 
                 
             </div>
@@ -677,7 +672,7 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zwyywz.github.io/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/">https://zwyywz.github.io/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/</a>
+                    <a href="https://zwyywz.github.io/2021/06/15/YOLOv5%E5%88%9D%E4%BD%93%E9%AA%8C/">https://zwyywz.github.io/2021/06/15/YOLOv5%E5%88%9D%E4%BD%93%E9%AA%8C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -715,12 +710,12 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/TensorFlow/">
-                                    <span class="chip bg-color">TensorFlow</span>
+                                <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+                                    <span class="chip bg-color">环境配置</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">神经网络</span>
+                                <a href="/tags/opencv/">
+                                    <span class="chip bg-color">opencv</span>
                                 </a>
                             
                         </div>
@@ -892,9 +887,10 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/06/15/YOLOv5%E5%88%9D%E4%BD%93%E9%AA%8C/">
                     <div class="card-image">
@@ -911,9 +907,9 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -926,6 +922,7 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -948,30 +945,30 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/31/opencv%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+                <a href="/2021/05/21/%E6%B2%B9%E8%80%97%E9%A2%84%E6%B5%8B/">
                     <div class="card-image">
                         
-                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/OpenCV.png" class="responsive-img" alt="【树莓派】OpenCV3源码方式安装教程">
+                        <img src="https://blog-1300216920.cos.ap-nanjing.myqcloud.com/油耗.jpg" class="responsive-img" alt="汽车油耗预测实战">
                         
-                        <span class="card-title">【树莓派】OpenCV3源码方式安装教程</span>
+                        <span class="card-title">汽车油耗预测实战</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            将利用全连接网络模型来完成汽车的效能指标MPG(Mile Per Gallon，每加仑燃油英里数)的预测问题实战
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    个人项目
                                 </a>
                             
                             
@@ -981,12 +978,12 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">环境配置</span>
+                    <a href="/tags/TensorFlow/">
+                        <span class="chip bg-color">TensorFlow</span>
                     </a>
                     
-                    <a href="/tags/opencv/">
-                        <span class="chip bg-color">opencv</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
                     </a>
                     
                 </div>
@@ -1117,6 +1114,13 @@ plot<span class="token punctuation">(</span>train_mae_losses<span class="token p
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
